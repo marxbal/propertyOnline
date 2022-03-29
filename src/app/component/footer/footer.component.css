@@ -1,0 +1,96 @@
+#footer {
+  font-family: Arial;
+  color: #fff;
+  overflow-wrap: break-word;
+}
+
+#footer .ft-spacer {
+  padding-bottom: 30px;
+}
+
+#footer .first-layer {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  background: #d81e05;
+}
+
+#footer h3 {
+  font-weight: 700;
+  color: #fff;
+}
+
+#footer a {
+  color: #fefefe;
+}
+
+#footer .ft-pads {
+  padding: 0 25px;
+}
+
+#footer ul.ft-socialmedia {
+  list-style: none;
+  padding-left: 0;
+}
+
+#footer .ft-links {
+  margin-bottom: 20px;
+}
+
+#footer .ft-links ul {
+  list-style: none;
+  padding: 0px;
+}
+
+#footer .ft-links ul li {
+  padding: 15px 0;
+  text-transform: uppercase;
+}
+
+#footer .ft-links ul li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#footer .ft-links ul li a:hover {
+  color: #2e2e2e;
+  font-weight: bolder;
+}
+
+#footer ul.ft-socialmedia li {
+  display: inline;
+  margin: 0 10px;
+  font-size: 22px;
+}
+
+#footer .col-sm-2 {
+  text-align: center;
+}
+
+#footer .ft-icons {
+  font-size: 40px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#footer .ft-company {
+  text-align: center;
+  background-color: #2e2e2e;
+  padding-top: 15px;
+}
+
+#footer .ft-version {
+  background-color: #3e3e3e;
+  text-align: center;
+}
+
+#footer .ft-version p {
+  margin: 8px 0;
+  font-size: 12px;
+  color: #bdbdbd;
+}
+
+@media only screen and (max-width: 767px) {
+  #footer .col-sm-10 {
+    text-align: center;
+  }
+}

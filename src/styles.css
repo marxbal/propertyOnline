@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/vendor/fontawesome/css/all.min.css';
+
+/* buttons */
+.btn.btn-primary {
+    background-color: #d81e05 !important;
+}

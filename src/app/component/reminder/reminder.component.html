@@ -1,0 +1,118 @@
+<div class="container">
+  <div id="reminder">
+    <p>
+      <strong>MAPFRE HOME INSURANCE</strong> provides protection to your home
+      and its contents againts loss and damage. Choose from our residential
+      products and enjoy additional benefits for FREE! We also have an insurance
+      solution for liabilities that may arise from accidents in your house.
+    </p>
+
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="col-md-2 text-center">
+        <i class="fa-solid fa-house-fire icons"></i>
+      </div>
+      <div class="col-md-10">
+        <h3>FIRE</h3>
+        <ul>
+          <li>Ideal for homeowners or tenants looking for basic coverage</li>
+          <li>
+            Provides protection to your house and its contents againts loss or
+            damage caused by fire and lightning.
+          </li>
+        </ul>
+      </div>
+
+      <div class="clearfix"></div>
+      <div class="spacer"></div>
+
+      <div class="col-md-2 text-center">
+        <i class="fa-solid fa-house-crack icons"></i>
+      </div>
+      <div class="col-md-10">
+        <h3>EARTH</h3>
+        <ul>
+          <li>
+            Ideal for homeowners or tenants looking for basic coverage and
+            additional home emergency and assistance services.
+          </li>
+          <li>
+            Provides protection to your house and its contents againts loss or
+            damage caused by fire, lightning and earthquake. Also provides
+            additional benefits in the form of allowance and assistance services
+          </li>
+        </ul>
+      </div>
+
+      <div class="clearfix"></div>
+      <div class="spacer"></div>
+
+      <div class="col-md-2 text-center">
+        <i class="fa-solid fa-house-flood-water icons"></i>
+      </div>
+      <div class="col-md-10">
+        <h3>WATER</h3>
+        <ul>
+          <li>
+            Provides protection to your house and its contents againts loss or
+            damage caused by fire and lightning, and MORE perils namely
+            <ul>
+              <li>Earthquake</li>
+              <li>Typhoon</li>
+              <li>Flood (For listed areas only. Available upon inquiry.</li>
+              <li>
+                Extended Cover (Explosion, falling aircraft, smoke, vehicle
+                impact)
+              </li>
+              <li>Riot (Strike and malicious damage)</li>
+              <li>Broad water damage</li>
+              <li>Robbery</li>
+              <li>Accidental bursting of water tanks, apparatus and pipes</li>
+            </ul>
+          </li>
+          <li>
+            Enjoy MORE additional benefits for FREE in the form of allowance,
+            assitance services, personal accident and personal liability
+            coverages.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="alert alert-info">
+      Cancellation and Refund of policies must be notified to the company at
+      least three(3) working days prior to policy inception/effectivity. No
+      cancellation shall be accepted once policy has started coverage/incepted
+      and no taxes shall be refunded.
+    </div>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="confirmCheckbox"
+        (change)="disableNextBtn = !disableNextBtn"
+      />
+      <label class="form-check-label" for="confirmCheckbox">
+        I hereby confirm that I have read and understood the information note
+        concerning the conditions of application.
+      </label>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <input
+        type="button"
+        class="btn btn-primary"
+        value="Next"
+        (click)="showIssuanceForm(true)"
+        [disabled]="disableNextBtn"
+      />
+    </div>
+  </div>
+</div>
