@@ -7,63 +7,38 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>House Building Number</mat-label>
-            <input
-              matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <input matInput formControlName="buildingNumber" required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Village/Subdivision</mat-label>
-            <input
-              matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <input matInput formControlName="village" required />
           </mat-form-field>
         </div>
         <div class="clearfix"></div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Building Name</mat-label>
-            <input
-              matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <input matInput formControlName="buildingName" required />
           </mat-form-field>
         </div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Street Name</mat-label>
-            <input
-              matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <input matInput formControlName="streetName" required />
           </mat-form-field>
         </div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Barangay</mat-label>
-            <input
-              matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <input matInput formControlName="barangay" required />
           </mat-form-field>
         </div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Region</mat-label>
-            <mat-select required>
+            <mat-select required formControlName="region">
               <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
               {{food.viewValue}}
             </mat-option> -->
@@ -73,7 +48,7 @@
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Province</mat-label>
-            <mat-select required>
+            <mat-select required formControlName="province">
               <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
               {{food.viewValue}}
             </mat-option> -->
@@ -83,7 +58,7 @@
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>City</mat-label>
-            <mat-select required>
+            <mat-select required formControlName="city">
               <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
               {{food.viewValue}}
             </mat-option> -->
@@ -103,11 +78,12 @@
             <input
               matInput
               #input
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
+              formControlName="buildingCapital"
               required
               matTooltip="Info about the action"
             />
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
           </mat-form-field>
         </div>
         <div class="col-md-3">
@@ -115,22 +91,18 @@
             <mat-label>Content Value</mat-label>
             <input
               matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
+              formControlName="contentValue"
               required
               matTooltip="Info about the action"
             />
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
           </mat-form-field>
         </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Year Built</mat-label>
-            <input
-              matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <input matInput formControlName="yearBuilt" required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
@@ -139,8 +111,7 @@
             <input
               type="number"
               matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
+              formControlName="numberOfFloors"
               required
             />
           </mat-form-field>
@@ -150,8 +121,7 @@
             <mat-label>Construction of Building</mat-label>
             <textarea
               matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
+              formControlName="constructionOfBuilding"
               required
               matTooltip="Info about the action"
             ></textarea>
@@ -162,8 +132,7 @@
             <mat-label>Occupancy of Building</mat-label>
             <textarea
               matInput
-              formControlName="secondCtrl"
-              placeholder="Ex. 1 Main St, New York, NY"
+              formControlName="occupancyOfBuilding"
               required
               matTooltip="Info about the action"
             ></textarea>

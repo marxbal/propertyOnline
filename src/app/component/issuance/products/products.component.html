@@ -21,7 +21,11 @@
           </mat-card-content>
           <mat-card-actions align="end">
             <div>
-              <button mat-raised-button matStepperNext color="primary">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="selectProduct('fire')"
+              >
                 Choose
               </button>
             </div>
@@ -46,7 +50,11 @@
           </mat-card-content>
           <mat-card-actions align="end">
             <div>
-              <button mat-raised-button matStepperNext color="primary">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="selectProduct('earth')"
+              >
                 Choose
               </button>
             </div>
@@ -78,7 +86,11 @@
           <mat-card-actions align="end">
             <div>
               <!-- <button mat-raised-button matStepperPrevious color="basic">Back</button> -->
-              <button mat-raised-button matStepperNext color="primary">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="selectProduct('water')"
+              >
                 Choose
               </button>
             </div>

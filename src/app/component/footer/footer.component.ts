@@ -7,10 +7,9 @@ import { VERSION } from 'src/app/objects/app.constant';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
-
-  version: string = VERSION;
-
   constructor() {}
+  
+  version: string = VERSION;
 
   ngOnInit(): void {}
 }

@@ -21,15 +21,5 @@ export class PropertyComponent implements OnInit {
     { name: 'test1', value: 2 },
   ];
 
-  ngOnInit(): void {
-    // this.testList = [
-    //   { name: 'test', value: '0' },
-    //   { name: 'test1', value: '1' },
-    // ];
-    console.log(this.testList);
-  }
-
-  test() {
-    // console.log(this.formGroup);
-  }
+  ngOnInit(): void {}
 }

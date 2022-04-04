@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./reminder.component.css'],
 })
 export class ReminderComponent implements OnInit {
+  constructor(private router: Router) {}
+
   @Output() issuanceForm = new EventEmitter<boolean>();
   isRead: boolean = false;
   showReadReminder: boolean = false;
 
   disableNextBtn: boolean = true;
-
-  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 

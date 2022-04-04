@@ -2,21 +2,21 @@
   <app-header></app-header>
 
   <div class="container">
-    <mat-stepper [linear]="true" #stepper>
+    <mat-stepper [linear]="false" #stepper>
       <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
         <app-property [formGroup]="propertyFG"></app-property>
       </mat-step>
 
-      <mat-step [stepControl]="secondFormGroup" label="Location and Building Details">
-        <app-location-building [formGroup]="secondFormGroup"></app-location-building>
+      <mat-step [stepControl]="propertyFG" label="Location and Building Details">
+        <app-location-building [formGroup]="propertyFG"></app-location-building>
       </mat-step>
 
-      <mat-step [stepControl]="thirdFormGroup" label="Boundaries and Related Structures">
-        <app-boundary-related-structure [formGroup]="thirdFormGroup"></app-boundary-related-structure>
+      <mat-step [stepControl]="propertyFG" label="Boundaries and Related Structures">
+        <app-boundary-related-structure [formGroup]="propertyFG"></app-boundary-related-structure>
       </mat-step>
 
-      <mat-step [stepControl]="fourthFormGroup" label="Products and Plans">
-        <app-products [formGroup]="fourthFormGroup"></app-products>
+      <mat-step [stepControl]="propertyFG" label="Products and Plans">
+        <app-products [formGroup]="propertyFG" (nextStep)="nextStep()"></app-products>
       </mat-step>
 
       <mat-step [stepControl]="fifthFormGroup" label="Payment and Coverage">

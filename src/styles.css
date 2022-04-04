@@ -35,5 +35,9 @@
   background-color: #d81e05;
 }
 
+h2.swal2-title {
+  font-size: 1.875em !important;
+  font-weight: 600 !important;
+}
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
