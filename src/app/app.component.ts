@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { VERSION } from './objects/app.constant';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,6 @@ import { VERSION } from './objects/app.constant';
 })
 export class AppComponent implements OnInit {
   title = 'propertyOnline';
-  version: string = VERSION;
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }

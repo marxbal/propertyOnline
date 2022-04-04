@@ -1,0 +1,99 @@
+<form [formGroup]="formGroup">
+  <!-- <ng-template matStepLabel>Property Insurance</ng-template> -->
+
+  <mat-card>
+    <mat-card-title class="first">
+      Property Insurance Information
+    </mat-card-title>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Business Line</mat-label>
+            <mat-select formControlName="businessLine" required>
+              <mat-option *ngFor="let list of testList" [value]="list.value">
+                {{ list.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Date Range</mat-label>
+            <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+              <input
+                formControlName="startDate"
+                matStartDate
+                placeholder="Start date"
+              />
+              <input
+                formControlName="endDate"
+                matEndDate
+                placeholder="End date"
+              />
+            </mat-date-range-input>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-title> Property Holder Information </mat-card-title>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Client Category</mat-label>
+            <mat-select formControlName="clientCategory" required>
+              <mat-option *ngFor="let list of testList" [value]="list.value">
+                {{ list.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Client Name</mat-label>
+            <input formControlName="clientName" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Contact Number</mat-label>
+            <input formControlName="contactNumber" maxlength="10" matInput required />
+            <span matPrefix>+63&nbsp;</span>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input formControlName="emailAddress" matInput required />
+            <mat-error *ngIf="formGroup.get('emailAddress')?.errors?.email">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <div>
+        <button
+          mat-raised-button
+          matStepperNext
+          color="primary"
+          (click)="test()"
+        >
+          Next
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>
