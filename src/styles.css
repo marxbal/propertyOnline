@@ -1,6 +1,11 @@
 @import "./styles/vendor/fontawesome/css/all.min.css";
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
+.mat-typography {
+  font: 400 14px/20px Arial, "Helvetica Neue", sans-serif;
+  line-height: normal;
+}
+
 /* buttons */
 .btn.btn-primary {
   background-color: #d81e05 !important;

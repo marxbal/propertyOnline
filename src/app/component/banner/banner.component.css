@@ -7,18 +7,24 @@
   height: 700px;
 }
 
+.header-bg {
+  height: 700px;
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .banner-text {
-  margin-top: 30px;
-  font-size: 110px;
+  margin-top: 100px;
+  font-size: 100px;
+  padding-left: 20%;
   color: #ed1c24;
   font-family: Arial, Helvetica, sans-serif !important;
   line-height: normal !important;
   font-weight: 700;
 }
-
-/* h1.banner-text {
-  font: 400 110px/100px Roboto, "Helvetica Neue", sans-serif;
-} */
 
 .banner-text span {
   color: black;
@@ -26,10 +32,15 @@
 }
 
 .sub-text {
+  padding-left: 20%;
   color: black;
-  font-size: 31pt;
+  font-size: 30px;
   margin-bottom: 20px;
   line-height: normal !important;
+}
+
+.btn-grp {
+  padding-left: 20%;
 }
 
 .avail-online-btn {
@@ -37,14 +48,74 @@
   min-width: 350px;
 }
 
+@media only screen and (max-width: 1000px) {
+  .banner-text {
+    font-size: 70px;
+  }
+
+  .sub-text {
+    font-size: 20px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
+  .header-bg {
+    -webkit-clip-path: none;
+    clip-path: none;
+  }
+
+  .banner-text,
+  .sub-text,
+  .btn-grp {
+    padding-left: 0px;
+  }
+
   .banner-section {
     background-position: center;
-    height: 910px;
+  }
+
+  .header-bg,
+  .banner-section {
+    height: 400px;
   }
 
   .banner-text {
-    font-size: 80px;
+    font-size: 60px;
+  }
+
+  .banner-text span {
+    margin-left: 0px;
+  }
+
+  .sub-text {
+    font-size: 30px;
+  }
+
+  .avail-online-btn {
+    font-size: 20px;
+    min-width: 320px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header-bg {
+    -webkit-clip-path: none;
+    clip-path: none;
+  }
+
+  .banner-text,
+  .sub-text,
+  .btn-grp {
+    padding-left: 0px;
+  }
+
+  .banner-section {
+    background-position: center;
+  }
+
+  .header-bg,
+  .banner-section {
+    height: 400px;
   }
 
   .banner-text span {
@@ -54,6 +125,10 @@
 
 @media only screen and (max-width: 500px) {
   .banner-text {
-    font-size: 50px;
+    font-size: 40px;
+  }
+
+  .sub-text {
+    font-size: 20px;
   }
 }

@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
-import { PropertyComponent } from './property/property.component';
+import { Property } from 'src/app/objects/property';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-issuance',
@@ -13,7 +14,8 @@ export class IssuanceComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
-  @ViewChild('property', { static: false }) property: PropertyComponent;
+
+  property = new Property();
 
   propertyFG: FormGroup = new FormGroup({});
   locationFG: FormGroup = new FormGroup({});
@@ -23,12 +25,6 @@ export class IssuanceComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    // this.router.events.subscribe((evt) => {
-    //   if (!(evt instanceof NavigationEnd)) {
-    //     return;
-    //   }
-    //   window.scrollTo(0, 0);
-    // });
 
     this.propertyFG = this.fb.group({
       businessLine: ['', Validators.required],
@@ -50,7 +46,7 @@ export class IssuanceComponent implements OnInit {
       province: ['', Validators.required],
       city: ['', Validators.required],
       buildingCapital: ['', Validators.required],
-      contentValue: ['', Validators.required],
+      contentValue: ['', null],
       yearBuilt: ['', Validators.required],
       numberOfFloors: ['', Validators.required],
       constructionOfBuilding: ['', Validators.required],
@@ -62,26 +58,33 @@ export class IssuanceComponent implements OnInit {
       right: ['', Validators.required],
       left: ['', Validators.required],
       rear: ['', Validators.required],
-      garage: ['', Validators.required],
-      kitchen: ['', Validators.required],
-      gazebo: ['', Validators.required],
-      swimmingPool: ['', Validators.required],
-      fence: ['', Validators.required],
-      lossHistory: ['', Validators.required],
-      previousInsurer: ['', Validators.required],
+      garage: ['', null],
+      kitchen: ['', null],
+      gazebo: ['', null],
+      swimmingPool: ['', null],
+      fence: ['', null],
+      lossHistory: ['', null],
+      previousInsurer: ['', null],
     });
 
     this.productFG = this.fb.group({
-      product: ['', Validators.required],
+      product: ['', Validators.required]
     });
 
     this.fg = this.fb.group({
-      secondCtrl: ['', Validators.required],
+      secondCtrl: ['', Validators.required]
     });
   }
 
   nextStep() {
     if (this.stepper) {
+      this.property = _.merge(
+        this.propertyFG.value,
+        this.locationFG.value,
+        this.boundaryFG.value,
+        this.productFG.value
+      );
+      console.log(this.property);
       this.stepper.next();
     }
   }

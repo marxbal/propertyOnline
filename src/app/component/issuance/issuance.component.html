@@ -5,7 +5,7 @@
     <div class="container">
       <mat-stepper [linear]="true" #stepper>
         <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
-          <app-property [formGroup]="propertyFG" #property></app-property>
+          <app-property [formGroup]="propertyFG"></app-property>
         </mat-step>
 
         <mat-step [stepControl]="locationFG" label="Location and Building Details">
