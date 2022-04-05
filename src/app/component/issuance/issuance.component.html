@@ -1,38 +1,30 @@
-<div class="container-fluid">
+
   <app-header></app-header>
 
-  <div class="container">
-    <mat-stepper [linear]="false" #stepper>
-      <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
-        <app-property [formGroup]="propertyFG"></app-property>
-      </mat-step>
+  <div class="container-fluid">
+    <div class="container">
+      <mat-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
+          <app-property [formGroup]="propertyFG" #property></app-property>
+        </mat-step>
 
-      <mat-step [stepControl]="propertyFG" label="Location and Building Details">
-        <app-location-building [formGroup]="propertyFG"></app-location-building>
-      </mat-step>
+        <mat-step [stepControl]="locationFG" label="Location and Building Details">
+          <app-location-building [formGroup]="locationFG"></app-location-building>
+        </mat-step>
 
-      <mat-step [stepControl]="propertyFG" label="Boundaries and Related Structures">
-        <app-boundary-related-structure [formGroup]="propertyFG"></app-boundary-related-structure>
-      </mat-step>
+        <mat-step [stepControl]="boundaryFG" label="Boundaries and Related Structures">
+          <app-boundary-related-structure [formGroup]="boundaryFG"></app-boundary-related-structure>
+        </mat-step>
 
-      <mat-step [stepControl]="propertyFG" label="Products and Plans">
-        <app-products [formGroup]="propertyFG" (nextStep)="nextStep()"></app-products>
-      </mat-step>
+        <mat-step [stepControl]="productFG" label="Products and Plans">
+          <app-products [formGroup]="productFG" (nextStep)="nextStep()"></app-products>
+        </mat-step>
 
-      <mat-step [stepControl]="fifthFormGroup" label="Payment and Coverage">
-        <app-coverage [formGroup]="fifthFormGroup"></app-coverage>
-      </mat-step>
-
-      <!-- <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
-      </mat-step> -->
-    </mat-stepper>
+        <mat-step [stepControl]="fg" label="Payment and Coverage">
+          <app-coverage [formGroup]="fg"></app-coverage>
+        </mat-step>
+      </mat-stepper>
+    </div>
   </div>
 
   <app-footer></app-footer>
-</div>

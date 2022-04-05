@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertyComponent } from './component/issuance/property/property.component';
@@ -58,6 +59,7 @@ import { CoverageComponent } from './component/issuance/coverage/coverage.compon
     MatButtonModule,
     MatSelectModule,
     MatTooltipModule,
+    MatTableModule,
     FormsModule,
     ReactiveFormsModule,
   ],

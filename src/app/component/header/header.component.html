@@ -1,127 +1,133 @@
-<div id="header" class="header-section">
-  <div class="row">
-    <div class="col-lg-12 first-layer">
-      <div class="row">
-        <div class="col-lg-3 col-md-3">
-          <div *ngIf="isBranded" class="logo" title="MAPFRE INSURANCE">
-            <a [href]="brandSite" accesskey="1" tabindex="0">
-              <div class="branding-logo">
-                <img [src]="brandLogo" alt="Brand-logo" title="Brand Logo" />
+<div class="container-fluid">
+  <div id="header" class="header-section">
+    <div class="row">
+      <div class="col-lg-12 first-layer">
+        <div class="row">
+          <div class="col-lg-3 col-md-3">
+            <div *ngIf="isBranded" class="logo" title="MAPFRE INSURANCE">
+              <a [href]="brandSite" accesskey="1" tabindex="0">
+                <div class="branding-logo">
+                  <img [src]="brandLogo" alt="Brand-logo" title="Brand Logo" />
+                </div>
+              </a>
+            </div>
+            <div class="logo" title="MAPFRE INSURANCE">
+              <a href="//mapfre.com.ph" accesskey="1" tabindex="0">
+                <img
+                  src="assets/images/mapfre/logo-small-new.png"
+                  alt="MAPFRE Insurance"
+                  title="MAPFRE Insurance"
+                />
+              </a>
+            </div>
+            <div class="menu-toggle" onclick="$('.hr-links').slideToggle();">
+              <!-- <span class="fa-stack fa-2x">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-bars fa-stack-1x fa-inverse"></i>
+              </span> -->
+              <i class="fa-solid fa-bars fa-2x"></i>
+            </div>
+          </div>
+          <div class="col-lg-9 col-md-9 hr-links-wrapper">
+            <div class="content-container02">
+              <div class="hr-links">
+                <ul>
+                  <li>
+                    <a
+                      href="//getaquote.mapfre.com.ph/car-insurance/"
+                      tabindex="0"
+                      >Get a Quote</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="//www.mapfregrupo.com/corporativo/grupomapfre/en/general/index.shtml"
+                      tabindex="0"
+                      target="_blank"
+                      >MAPFRE Global</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="//www.insurance.gov.ph/"
+                      tabindex="0"
+                      target="_blank"
+                      >Insurance Commission</a
+                    >
+                  </li>
+                </ul>
               </div>
-            </a>
-          </div>
-          <div class="logo" title="MAPFRE INSURANCE">
-            <a href="//mapfre.com.ph" accesskey="1" tabindex="0">
-              <img
-                src="assets/images/mapfre/logo-small-new.png"
-                alt="MAPFRE Insurance"
-                title="MAPFRE Insurance"
-              />
-            </a>
-          </div>
-          <div class="menu-toggle" onclick="$('.hr-links').slideToggle();">
-            <!-- <span class="fa-stack fa-2x">
-              <i class="fa fa-square fa-stack-2x"></i>
-              <i class="fa fa-bars fa-stack-1x fa-inverse"></i>
-            </span> -->
-            <i class="fa-solid fa-bars fa-2x"></i>
+            </div>
           </div>
         </div>
-        <div class="col-lg-9 col-md-9 hr-links-wrapper">
-          <div class="content-container02">
-            <div class="hr-links">
+      </div>
+      <!-- .first-layer -->
+
+      <div class="col-lg-12 second-layer hr-second-layer d-none d-sm-block">
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-sm-5"></div>
+          <div class="col-lg-7 col-md-7 col-sm-7">
+            <div class="hr-socialmedia">
               <ul>
                 <li>
                   <a
-                    href="//getaquote.mapfre.com.ph/car-insurance/"
+                    href="https://www.facebook.com/mapfreph"
                     tabindex="0"
-                    >Get a Quote</a
-                  >
+                    class="icon-facebook"
+                    title="Facebook"
+                    target="_blank"
+                    ><i class="fa-brands fa-facebook"></i
+                  ></a>
                 </li>
                 <li>
                   <a
-                    href="//www.mapfregrupo.com/corporativo/grupomapfre/en/general/index.shtml"
+                    href="https://twitter.com/mapfreph"
                     tabindex="0"
+                    class="icon-twitter"
+                    title="Twitter"
                     target="_blank"
-                    >MAPFRE Global</a
-                  >
+                    ><i class="fa-brands fa-twitter"></i
+                  ></a>
                 </li>
                 <li>
-                  <a href="//www.insurance.gov.ph/" tabindex="0" target="_blank"
-                    >Insurance Commission</a
-                  >
+                  <a
+                    href="https://www.instagram.com/mapfreinsuranceph/"
+                    tabindex="0"
+                    class="icon-instagram"
+                    title="Instagram"
+                    target="_blank"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="//www.youtube.com/user/mapfreinsularph"
+                    tabindex="0"
+                    class="icon-youtube"
+                    title="YouTube"
+                    target="_blank"
+                    ><i class="fa-brands fa-youtube"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/mapfreph"
+                    tabindex="0"
+                    class="icon-linkedin"
+                    title="Linkedin"
+                    target="_blank"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      <!-- .second-layer -->
     </div>
-    <!-- .first-layer -->
-
-    <div class="col-lg-12 second-layer hr-second-layer d-none d-sm-block">
-      <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-5"></div>
-        <div class="col-lg-7 col-md-7 col-sm-7">
-          <div class="hr-socialmedia">
-            <ul>
-              <li>
-                <a
-                  href="https://www.facebook.com/mapfreph"
-                  tabindex="0"
-                  class="icon-facebook"
-                  title="Facebook"
-                  target="_blank"
-                  ><i class="fa-brands fa-facebook"></i
-                ></a>
-              </li>
-              <li>
-                <a
-                  href="https://twitter.com/mapfreph"
-                  tabindex="0"
-                  class="icon-twitter"
-                  title="Twitter"
-                  target="_blank"
-                  ><i class="fa-brands fa-twitter"></i
-                ></a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/mapfreinsuranceph/"
-                  tabindex="0"
-                  class="icon-instagram"
-                  title="Instagram"
-                  target="_blank"
-                  ><i class="fa-brands fa-instagram"></i
-                ></a>
-              </li>
-              <li>
-                <a
-                  href="//www.youtube.com/user/mapfreinsularph"
-                  tabindex="0"
-                  class="icon-youtube"
-                  title="YouTube"
-                  target="_blank"
-                  ><i class="fa-brands fa-youtube"></i
-                ></a>
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/company/mapfreph"
-                  tabindex="0"
-                  class="icon-linkedin"
-                  title="Linkedin"
-                  target="_blank"
-                  ><i class="fa-brands fa-linkedin"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- .second-layer -->
+    <!-- .row -->
   </div>
-  <!-- .row -->
+  <!-- #header -->
 </div>
-<!-- #header -->
+<!-- .container-fluid -->

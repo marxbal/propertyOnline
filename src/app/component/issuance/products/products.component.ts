@@ -2,14 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 
-const swal = Swal.mixin({
-  customClass: {
-    confirmButton: 'btn btn-primary',
-    cancelButton: 'btn btn-secondary',
-  },
-  buttonsStyling: false,
-});
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -29,24 +21,26 @@ export class ProductsComponent implements OnInit {
 
   selectProduct(value: string) {
     const title = value.toUpperCase();
-    swal
+    Swal
       .fire({
         title: 'Are you sure?',
         text: 'You have selected ' + title + ' insurance?',
         showCancelButton: true,
         confirmButtonText: 'Proceed',
-        icon: 'info',
+        confirmButtonColor: '#d81e05',
+        cancelButtonColor: '#6e7881',
+        icon: 'warning',
       })
       .then((result) => {
         if (result.isConfirmed) {
+          this.formGroup.get('product')?.setValue(value);
           Swal.fire('Processing!', '', 'success');
-          setTimeout(()=> {
+          setTimeout(() => {
             Swal.close();
             if (this.nextStep != undefined) {
               this.next('');
             }
           }, 2000);
-          
         }
       });
   }

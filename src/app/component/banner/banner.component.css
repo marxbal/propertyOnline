@@ -12,13 +12,13 @@
   font-size: 110px;
   color: #ed1c24;
   font-family: Arial, Helvetica, sans-serif !important;
-  /* text-align: right; */
+  line-height: normal !important;
+  font-weight: 700;
 }
 
-h1.banner-text {
+/* h1.banner-text {
   font: 400 110px/100px Roboto, "Helvetica Neue", sans-serif;
-  /* text-align: right; */
-}
+} */
 
 .banner-text span {
   color: black;
@@ -29,16 +29,12 @@ h1.banner-text {
   color: black;
   font-size: 31pt;
   margin-bottom: 20px;
-  /* text-align: right; */
+  line-height: normal !important;
 }
-
-/* .btn-grp {
-    text-align: right;
-} */
 
 .avail-online-btn {
   font-size: 30px;
-  min-width: 400px;
+  min-width: 350px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -51,15 +47,13 @@ h1.banner-text {
     font-size: 80px;
   }
 
-  /* .btn-section,
-  .banner-text,
-  .pricing-text,
-  .sub-text {
-    text-align: center;
-    padding-left: 0;
-  } */
-
   .banner-text span {
     margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .banner-text {
+    font-size: 50px;
   }
 }

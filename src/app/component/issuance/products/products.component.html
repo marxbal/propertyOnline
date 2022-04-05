@@ -4,7 +4,7 @@
   <mat-card-content>
     <div class="row">
       <div class="col-md-4">
-        <mat-card class="product">
+        <mat-card class="product" (click)="selectProduct('fire')">
           <img class="product-select" src="./assets/images/products/test.jpg" />
           <mat-card-content>
             <div class="row">
@@ -19,21 +19,10 @@
               </div>
             </div>
           </mat-card-content>
-          <mat-card-actions align="end">
-            <div>
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="selectProduct('fire')"
-              >
-                Choose
-              </button>
-            </div>
-          </mat-card-actions>
         </mat-card>
       </div>
       <div class="col-md-4">
-        <mat-card class="product">
+        <mat-card class="product" (click)="selectProduct('earth')">
           <img class="product-select" src="./assets/images/products/test.jpg" />
           <mat-card-content>
             <div class="row">
@@ -48,7 +37,7 @@
               </div>
             </div>
           </mat-card-content>
-          <mat-card-actions align="end">
+          <!-- <mat-card-actions align="end">
             <div>
               <button
                 mat-raised-button
@@ -58,11 +47,11 @@
                 Choose
               </button>
             </div>
-          </mat-card-actions>
+          </mat-card-actions> -->
         </mat-card>
       </div>
       <div class="col-md-4">
-        <mat-card class="product">
+        <mat-card class="product" (click)="selectProduct('water')">
           <img class="product-select" src="./assets/images/products/test.jpg" />
           <mat-card-content>
             <div class="row">
@@ -83,18 +72,6 @@
               </div>
             </div>
           </mat-card-content>
-          <mat-card-actions align="end">
-            <div>
-              <!-- <button mat-raised-button matStepperPrevious color="basic">Back</button> -->
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="selectProduct('water')"
-              >
-                Choose
-              </button>
-            </div>
-          </mat-card-actions>
         </mat-card>
       </div>
     </div>

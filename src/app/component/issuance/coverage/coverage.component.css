@@ -1,0 +1,15 @@
+tr.mat-header-row {
+  background-color: #d81e05;
+}
+
+th.mat-header-cell {
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background: #efefef;
+}
+
+.mat-column-value {
+  text-align: right;
+}
