@@ -29,6 +29,8 @@ import { LocationBuildingComponent } from './component/issuance/location-buildin
 import { BoundaryRelatedStructureComponent } from './component/issuance/boundary-related-structure/boundary-related-structure.component';
 import { ProductsComponent } from './component/issuance/products/products.component';
 import { CoverageComponent } from './component/issuance/coverage/coverage.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { CoverageComponent } from './component/issuance/coverage/coverage.compon
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
+    NgHttpLoaderModule.forRoot(),
   ],
   providers: [NgxPageScrollModule],
   bootstrap: [AppComponent],

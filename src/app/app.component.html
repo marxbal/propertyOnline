@@ -1,1 +1,24 @@
+<!-- <ngx-spinner
+  bdColor="rgba(33,33,33,0.8)"
+  size="medium"
+  color="#d31d29"
+  type="ball-spin"
+  [fullScreen]="true"
+>
+  <p style="color: white; text-align: center">
+    <br />We are validating your encoded details. <br />This will take a few
+    seconds.
+  </p>
+</ngx-spinner> -->
+
+<ng-http-loader
+    [debounceDelay]="1000"
+    [minDuration]="1000"
+    [backgroundColor]="'#fff'"
+    [backdropBackgroundColor]="'#1f1f1f'"
+    [opacity]="'.8'"
+    [spinner]="spinkit.skThreeBounce"
+    [filteredUrlPatterns]="['getDashboardInfo']"
+    ></ng-http-loader>
+
 <router-outlet></router-outlet>

@@ -2,3 +2,7 @@
   font-size: 80px;
   color: #d81e05;
 }
+
+input#confirmCheckbox {
+  margin-top: 1px;
+}

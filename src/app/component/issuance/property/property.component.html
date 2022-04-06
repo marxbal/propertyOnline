@@ -19,9 +19,9 @@
           </mat-form-field>
         </div>
         <div class="col-md-3">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Date Range</mat-label>
-            <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+            <mat-date-range-input [rangePicker]="picker" [min]="minDate" required>
               <input
                 formControlName="startDate"
                 matStartDate
@@ -65,7 +65,7 @@
           </mat-form-field>
         </div>
         <div class="col-md-3">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Contact Number</mat-label>
             <input formControlName="contactNumber" maxlength="10" matInput required />
             <span matPrefix>+63&nbsp;</span>

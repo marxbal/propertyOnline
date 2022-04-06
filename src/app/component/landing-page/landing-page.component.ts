@@ -14,9 +14,10 @@ export class LandingPageComponent implements OnInit {
 
   adjustBanner() {
     var windowHeight = window.innerHeight;
-    var bannerHeight = windowHeight - 89;
+    var bannerHeight = windowHeight - 73;
     var pixel = bannerHeight + 'px';
-    if (bannerHeight > 770) {
+
+    if (bannerHeight > 500) {
       var bannerSection = document.getElementById('bannerSection');
       if (bannerSection != null) {
         bannerSection.style.height = pixel;
@@ -27,5 +28,17 @@ export class LandingPageComponent implements OnInit {
         headerBg.style.height = pixel;
       }
     }
+
+    // alert(bannerHeight);
+
+    // var bannerSection = document.getElementById('bannerSection');
+    // if (bannerSection != null) {
+    //   bannerSection.style.height = pixel;
+    // }
+
+    // var headerBg = document.getElementById('headerBg');
+    // if (headerBg != null) {
+    //   headerBg.style.height = pixel;
+    // }
   }
 }
