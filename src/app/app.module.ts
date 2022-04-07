@@ -31,6 +31,7 @@ import { ProductsComponent } from './component/issuance/products/products.compon
 import { CoverageComponent } from './component/issuance/coverage/coverage.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,

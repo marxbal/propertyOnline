@@ -14,12 +14,11 @@ export interface Partners {
 export class BoundaryRelatedStructureComponent implements OnInit {
   constructor() {}
 
+  @Input() formGroup = new FormGroup({});
   testList: Array<Partners> = [
     { name: 'test', value: 1 },
     { name: 'test1', value: 2 },
   ];
-
-  @Input() formGroup = new FormGroup({});
 
   ngOnInit(): void {}
 }

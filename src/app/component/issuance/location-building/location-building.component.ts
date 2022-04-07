@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { LovService } from 'src/app/services/lov.service';
 
 export interface Partners {
   name: string;
@@ -12,13 +13,50 @@ export interface Partners {
   styleUrls: ['./location-building.component.css'],
 })
 export class LocationBuildingComponent implements OnInit {
-  constructor() {}
+  constructor(private lov: LovService) {}
   testList: Array<Partners> = [
     { name: 'test', value: 1 },
     { name: 'test1', value: 2 },
   ];
 
   @Input() formGroup = new FormGroup({});
+  regionList: any[] = [];
+  provinceList: any[] = [];
+  cityList: any[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getRegion();
+  }
+
+  getRegion() {
+    this.lov.getRegion().then((list) => {
+      this.regionList = list;
+    });
+  }
+
+  getProvince() {
+    const property = this.formGroup.value;
+    this.lov.getProvince(property).then((list) => {
+      this.regionList = list;
+    });
+  }
+
+  getCity() {
+    const property = this.formGroup.value;
+    this.lov.getCity(property).then((list) => {
+      this.cityList = list;
+    });
+  }
+
+  selectRegion() {
+    setTimeout(() => {
+      this.getProvince();
+    }, 500);
+  }
+
+  selectProvince() {
+    setTimeout(() => {
+      this.getCity();
+    }, 500);
+  }
 }

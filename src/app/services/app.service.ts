@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 
 import Swal from 'sweetalert2';
 import * as _ from 'lodash';
-
+import { Utility } from '../utils/utility';
 
 export const InterceptorSkipHeader = 'X-Skip-Interceptor';
 
@@ -28,12 +28,15 @@ export class AppService {
     );
   }
 
-  async get(endpoint: string): Promise < any > {
-    return this.http.get(this.apiUrl + endpoint)
-      .toPromise()
-      .then(response => response)
-      // .catch(err => console.log(err));
-      .catch(err => this.alertErr(err));
+  async get(endpoint: string): Promise<any> {
+    return (
+      this.http
+        .get(this.apiUrl + endpoint)
+        .toPromise()
+        .then((response) => response)
+        // .catch(err => console.log(err));
+        .catch((err) => this.alertErr(err))
+    );
   }
 
   // post(param: any, endpoint: string): Observable<any> {
@@ -94,18 +97,23 @@ export class AppService {
     const error = err.error;
     let title = 'Ooops! Something went wrong.';
     let message = 'Error! We are unable to process your request. Request response is emtpy. Please try again later.';
-    if (_.isEmpty(error)) {
-      title = 'Ooops! ' + error.error;
-      message = 'Error! We are unable to process your request at the moment. ' +
-        error.message +
-        '. Path: ' +
-        error.path;
+    if (!_.isEmpty(error)) {
+      const hasError = !Utility.isUndefined(error.error);
+
+      title = 'Ooops! ' + (hasError ? error.error : err.name);
+      message =
+        '<p>Error! We are unable to process your request at the moment. ' +
+        (hasError ? error.message : err.message) +
+        '.</p>' +
+        '<p>Path: '+
+        (hasError ? error.path : err.url) +
+        '.</p>';
     }
 
     Swal.fire({
       icon: 'error',
       title: title,
-      text: message,
+      html: message,
     });
   }
 }

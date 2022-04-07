@@ -66,10 +66,13 @@ export class Utility {
 
   //converts string value to integer
   static parseIntArray(arr: any[], param: string) {
-    arr.forEach(a => {
-      a[param] = parseInt(a[param]);
-    });
-    return arr;
+    if (arr) {
+      arr.forEach(a => {
+        a[param] = parseInt(a[param]);
+      });
+      return arr;
+    }
+    return [];
   }
 
   //format date string

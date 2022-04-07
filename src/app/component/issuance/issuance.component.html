@@ -3,7 +3,7 @@
 
   <div class="container-fluid">
     <div class="container">
-      <mat-stepper [linear]="true" #stepper>
+      <mat-stepper [linear]="false" #stepper>
         <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
           <app-property [formGroup]="propertyFG"></app-property>
         </mat-step>

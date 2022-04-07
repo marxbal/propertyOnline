@@ -38,7 +38,7 @@
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Region</mat-label>
-            <mat-select required formControlName="region">
+            <mat-select required formControlName="region" (selectionChange)="selectRegion()">
               <mat-option *ngFor="let list of testList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
@@ -48,7 +48,7 @@
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Province</mat-label>
-            <mat-select required formControlName="province">
+            <mat-select required formControlName="province" (selectionChange)="selectProvince()">
               <mat-option *ngFor="let list of testList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
