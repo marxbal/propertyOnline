@@ -38,7 +38,11 @@
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Region</mat-label>
-            <mat-select required formControlName="region" (selectionChange)="selectRegion()">
+            <mat-select
+              required
+              formControlName="region"
+              (selectionChange)="selectRegion()"
+            >
               <mat-option *ngFor="let list of testList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
@@ -48,7 +52,11 @@
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Province</mat-label>
-            <mat-select required formControlName="province" (selectionChange)="selectProvince()">
+            <mat-select
+              required
+              formControlName="province"
+              (selectionChange)="selectProvince()"
+            >
               <mat-option *ngFor="let list of testList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
@@ -63,6 +71,29 @@
                 {{ list.name }}
               </mat-option>
             </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-4">
+          <div>
+            <mat-label>This is the same as my mailing address </mat-label>
+          </div>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button
+              value="true"
+              (change)="radioMailing(true)"
+              [checked]="true"
+              >Yes</mat-radio-button
+            >
+            <mat-radio-button value="false" (change)="radioMailing(false)"
+              >No</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+        <div class="col-md-8" *ngIf="showMailingAddress">
+          <mat-form-field appearance="fill">
+            <mat-label>Mailing Address</mat-label>
+            <input matInput formControlName="mailingAddress" required />
           </mat-form-field>
         </div>
       </div>
@@ -102,7 +133,12 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Year Built</mat-label>
-            <input type="number" matInput formControlName="yearBuilt" required />
+            <input
+              type="number"
+              matInput
+              formControlName="yearBuilt"
+              required
+            />
           </mat-form-field>
         </div>
         <div class="col-md-3">

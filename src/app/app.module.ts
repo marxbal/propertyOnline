@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertyComponent } from './component/issuance/property/property.component';
@@ -64,6 +65,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatTooltipModule,
     MatTableModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,

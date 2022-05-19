@@ -3,7 +3,7 @@
 
 .mat-typography {
   font: 400 14px/20px Arial, "Helvetica Neue", sans-serif;
-  line-height: normal;
+  line-height: 20px;
 }
 
 /* buttons */

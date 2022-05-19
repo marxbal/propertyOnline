@@ -23,6 +23,8 @@ export class IssuanceComponent implements OnInit {
   productFG: FormGroup = new FormGroup({});
   fg: FormGroup = new FormGroup({});
 
+  selectedFile: any = null;
+
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
@@ -34,6 +36,9 @@ export class IssuanceComponent implements OnInit {
       clientName: ['', Validators.required],
       contactNumber: ['', Validators.required],
       emailAddress: ['', [Validators.required, Validators.email]],
+      birthdate: ['', Validators.required],
+      governmentID: ['', Validators.required],
+      IDNumber: ['', Validators.required],
     });
 
     this.locationFG = this.fb.group({
@@ -45,6 +50,7 @@ export class IssuanceComponent implements OnInit {
       region: ['', Validators.required],
       province: ['', Validators.required],
       city: ['', Validators.required],
+      mailingAddress: ['', Validators.required],
       buildingCapital: ['', Validators.required],
       contentValue: ['', null],
       yearBuilt: ['', Validators.required],
@@ -68,12 +74,16 @@ export class IssuanceComponent implements OnInit {
     });
 
     this.productFG = this.fb.group({
-      product: ['', Validators.required]
+      product: ['', Validators.required],
     });
 
     this.fg = this.fb.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ['', Validators.required],
     });
+  }
+
+  getSelectedFile(evt: any) {
+    this.selectedFile = evt;
   }
 
   nextStep() {
@@ -85,6 +95,7 @@ export class IssuanceComponent implements OnInit {
         this.productFG.value
       );
       console.log(this.property);
+      console.log(this.selectedFile);
       this.stepper.next();
     }
   }

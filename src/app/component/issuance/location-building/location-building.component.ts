@@ -23,6 +23,7 @@ export class LocationBuildingComponent implements OnInit {
   regionList: any[] = [];
   provinceList: any[] = [];
   cityList: any[] = [];
+  showMailingAddress: boolean = false;
 
   ngOnInit(): void {
     this.getRegion();
@@ -46,6 +47,10 @@ export class LocationBuildingComponent implements OnInit {
     this.lov.getCity(property).then((list) => {
       this.cityList = list;
     });
+  }
+
+  radioMailing(bool: boolean) {
+    this.showMailingAddress = !bool;
   }
 
   selectRegion() {

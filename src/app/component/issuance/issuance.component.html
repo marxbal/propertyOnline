@@ -5,7 +5,8 @@
     <div class="container">
       <mat-stepper [linear]="false" #stepper>
         <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
-          <app-property [formGroup]="propertyFG"></app-property>
+          <app-property [formGroup]="propertyFG"
+          (selectedFile)="getSelectedFile($event)"></app-property>
         </mat-step>
 
         <mat-step [stepControl]="locationFG" label="Location and Building Details">

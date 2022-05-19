@@ -21,7 +21,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Date Range</mat-label>
-            <mat-date-range-input [rangePicker]="picker" [min]="minDate" required>
+            <mat-date-range-input
+              [rangePicker]="picker"
+              [min]="minDate"
+              required
+            >
               <input
                 formControlName="startDate"
                 matStartDate
@@ -67,7 +71,12 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Contact Number</mat-label>
-            <input formControlName="contactNumber" maxlength="10" matInput required />
+            <input
+              formControlName="contactNumber"
+              maxlength="10"
+              matInput
+              required
+            />
             <span matPrefix>+63&nbsp;</span>
           </mat-form-field>
         </div>
@@ -80,18 +89,62 @@
             </mat-error>
           </mat-form-field>
         </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input
+              formControlName="birthdate"
+              matInput
+              [matDatepicker]="bdayPicker"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="bdayPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #bdayPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Government ID</mat-label>
+            <mat-select formControlName="governmentID" required>
+              <mat-option *ngFor="let list of testList" [value]="list.value">
+                {{ list.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>ID number</mat-label>
+            <input
+              formControlName="IDNumber"
+              maxlength="20"
+              matInput
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <button type="button" mat-raised-button (click)="fileInput.click()">
+            Upload Photo
+          </button>
+          <input
+            hidden
+            (change)="onFileSelected($event)"
+            #fileInput
+            type="file"
+          />
+          <div class="file-name">{{ uploadFile?.name }}</div>
+        </div>
       </div>
     </mat-card-content>
 
     <mat-card-actions align="end">
       <div>
-        <button
-          mat-raised-button
-          matStepperNext
-          color="primary"
-        >
-          Next
-        </button>
+        <button mat-raised-button matStepperNext color="primary">Next</button>
       </div>
     </mat-card-actions>
   </mat-card>
