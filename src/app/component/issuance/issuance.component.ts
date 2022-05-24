@@ -34,11 +34,11 @@ export class IssuanceComponent implements OnInit {
       endDate: ['', Validators.required],
       clientCategory: ['', Validators.required],
       clientName: ['', Validators.required],
-      contactNumber: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
       emailAddress: ['', [Validators.required, Validators.email]],
-      birthdate: ['', Validators.required],
-      governmentID: ['', Validators.required],
-      IDNumber: ['', Validators.required],
+      birthday: ['', Validators.required],
+      documentType: ['', Validators.required],
+      documentId: ['', Validators.required],
     });
 
     this.locationFG = this.fb.group({
