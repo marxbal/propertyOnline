@@ -8,7 +8,6 @@ import { FooterComponent } from './component/footer/footer.component';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 import { BannerComponent } from './component/banner/banner.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
-import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IssuanceComponent } from './component/issuance/issuance.component';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -71,7 +70,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxSpinnerModule,
     NgHttpLoaderModule.forRoot(),
   ],
-  providers: [NgxPageScrollModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
