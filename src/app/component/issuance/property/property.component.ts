@@ -20,7 +20,6 @@ export class PropertyComponent implements OnInit {
   @Output() selectedFile = new EventEmitter();
   minDate: Date = new Date();
 
-
   businessLine: any[] = [];
   clientCategory: any[] = [];
   uploadFile: any = null;

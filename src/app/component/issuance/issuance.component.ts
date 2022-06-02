@@ -6,6 +6,7 @@ import { Property } from 'src/app/objects/property';
 import * as _ from 'lodash';
 import { IssuanceService } from 'src/app/services/issuance.service';
 import { ReturnDTO } from 'src/app/objects/return.dto';
+import * as m from 'moment';
 
 @Component({
   selector: 'app-issuance',
@@ -106,7 +107,6 @@ export class IssuanceComponent implements OnInit {
       {name: 'Fence', value: this.property.fence},
     ]
 
-
     this.property.relatedContentDetails = rcDetails;
     this.defaultParam();
 
@@ -130,12 +130,19 @@ export class IssuanceComponent implements OnInit {
     this.property.gender = 1;
 
     this.property.address1 = 
-      this.property.buildingNumber + " " +
-      this.property.village + ", " + 
-      this.property.buildingName + ", " +
-      this.property.streetName + ", " + 
-      this.property.barangay;
+    this.property.buildingNumber + " " +
+    this.property.village + ", " + 
+    this.property.buildingName + ", " +
+    this.property.streetName + ", " + 
+    this.property.barangay;
 
+    const effDate = m(this.property.effectivityDate).format("MM/DD/yyyy");
+    const exDate = m(this.property.expirationDate).format("MM/DD/yyyy");
+    const bDate = m(this.property.birthday).format("MM/DD/yyyy");
+
+    this.property.effectivityDate = effDate;
+    this.property.expirationDate = exDate;
+    this.property.birthday = bDate;
   }
 
   nextStep() {

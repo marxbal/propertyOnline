@@ -3,7 +3,7 @@ export class Property {
   firstName: string;
   middleName: string;
   lastName: string;
-  birthday: Date;
+  birthday: string;
   gender: number;
   address1: string;
 
@@ -15,8 +15,8 @@ export class Property {
   //p30
   policyNumber: string;
   subLine: string;
-  effectivityDate: Date;
-  expirationDate: Date;
+  effectivityDate: string;
+  expirationDate: string;
   paymentPlanCode: number;
   policyGroupCode: string;
   contractCode: number;
