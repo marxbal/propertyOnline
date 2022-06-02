@@ -132,14 +132,14 @@ export class IssuanceComponent implements OnInit {
     this.property.address1 = 
     this.property.buildingNumber + " " +
     this.property.village + ", " + 
-    this.property.buildingName + ", " +
-    this.property.streetName + ", " + 
-    this.property.barangay;
+    this.property.buildingName;
 
+    const iDate = m(new Date()).format("MM/DD/yyyy");
     const effDate = m(this.property.effectivityDate).format("MM/DD/yyyy");
     const exDate = m(this.property.expirationDate).format("MM/DD/yyyy");
     const bDate = m(this.property.birthday).format("MM/DD/yyyy");
 
+    this.property.timestamp = iDate;
     this.property.effectivityDate = effDate;
     this.property.expirationDate = exDate;
     this.property.birthday = bDate;

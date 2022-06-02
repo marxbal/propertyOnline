@@ -15,6 +15,7 @@ export class Property {
   //p30
   policyNumber: string;
   subLine: string;
+  timestamp: string;
   effectivityDate: string;
   expirationDate: string;
   paymentPlanCode: number;
