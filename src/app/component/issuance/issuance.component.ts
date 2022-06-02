@@ -121,6 +121,11 @@ export class IssuanceComponent implements OnInit {
           console.log('return: ' + result.message);
       });
 
+      this.issuanceService.test()
+        .then((result: ReturnDTO) =>{
+          console.log('test: ' + result.message);
+      });
+
       console.log(requestData);
       console.log(this.selectedFile);
       this.stepper.next();
