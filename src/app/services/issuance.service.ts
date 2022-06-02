@@ -11,13 +11,13 @@ export class IssuanceService {
 
   async issueQuote(property: Property): Promise<ReturnDTO> {
     return this.app
-      .post(property, '/issue/quote')
+      .post(property, 'issue/quote')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 
   async test(): Promise<ReturnDTO> {
     return this.app
-      .get('/test')
+      .get('test')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 }
