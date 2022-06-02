@@ -99,14 +99,27 @@ export class IssuanceComponent implements OnInit {
       this.productFG.value
     );
 
-    const rcDetails = [
-      {name: 'Garage', value: this.property.garage},
-      {name: 'Kitchen', value: this.property.kitchen},
-      {name: 'Gazebo', value: this.property.gazebo},
-      {name: 'Swimming Pool', value: this.property.swimmingPool},
-      {name: 'Fence', value: this.property.fence},
-    ]
-
+    const rcDetails = [];
+    if (!_.isEmpty(this.property.garage)) {
+      const obj = {name: 'Garage', value: this.property.garage};
+      rcDetails.push(obj);
+    }
+    if (!_.isEmpty(this.property.garage)) {
+      const obj = {name: 'Kitchen', value: this.property.kitchen};
+      rcDetails.push(obj);
+    }
+    if (!_.isEmpty(this.property.garage)) {
+      const obj = {name: 'Gazebo', value: this.property.gazebo};
+      rcDetails.push(obj);
+    }
+    if (!_.isEmpty(this.property.garage)) {
+      const obj = {name: 'Swimming Pool', value: this.property.swimmingPool};
+      rcDetails.push(obj);
+    }
+    if (!_.isEmpty(this.property.garage)) {
+      const obj = {name: 'Fence', value: this.property.fence};
+      rcDetails.push(obj);
+    }
     this.property.relatedContentDetails = rcDetails;
     this.defaultParam();
 
