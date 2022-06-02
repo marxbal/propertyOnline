@@ -35,7 +35,7 @@ export class IssuanceComponent implements OnInit {
     this.propertyFG = this.fb.group({
       subLine: ['', Validators.required],
       effectivityDate: ['', Validators.required],
-      expiryDate: ['', Validators.required],
+      expirationDate: ['', Validators.required],
       clientCategory: ['', Validators.required],
       firstName: ['', Validators.required],
       mobileNumber: ['', Validators.required],
