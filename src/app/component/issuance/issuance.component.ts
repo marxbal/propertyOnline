@@ -106,9 +106,27 @@ export class IssuanceComponent implements OnInit {
       {name: 'Fence', value: this.property.fence},
     ]
 
+
     this.property.relatedContentDetails = rcDetails;
+    this.defaultParam();
 
     return this.property;
+  }
+
+  defaultParam() {
+    this.property.issuance = 3;
+    this.property.paymentPlanCode = 1;
+    this.property.subLine = '200';
+    this.property.agentCode = 1101;
+    this.property.branchCode = 9203;
+    this.property.region = '10';
+    this.property.province = '15500';
+    this.property.city = '15001';
+
+    this.property.documentType = 'DRI';
+    this.property.middleName = 'XXX';
+    this.property.lastName = 'XXX';
+    this.property.gender = 1;
   }
 
   nextStep() {

@@ -11,7 +11,7 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Business Line</mat-label>
-            <mat-select formControlName="businessLine" required>
+            <mat-select formControlName="subLine" required>
               <mat-option *ngFor="let list of testList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
@@ -27,12 +27,12 @@
               required
             >
               <input
-                formControlName="startDate"
+                formControlName="effectivityDate"
                 matStartDate
                 placeholder="Start date"
               />
               <input
-                formControlName="endDate"
+                formControlName="expiryDate"
                 matEndDate
                 placeholder="End date"
               />
@@ -65,12 +65,12 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Client Name</mat-label>
-            <input formControlName="clientName" matInput required />
+            <input formControlName="firstName" matInput required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
-            <mat-label>Contact Number</mat-label>
+            <mat-label>Mobile Number</mat-label>
             <input
               formControlName="mobileNumber"
               maxlength="10"

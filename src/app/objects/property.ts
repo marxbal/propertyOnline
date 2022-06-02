@@ -1,16 +1,22 @@
 export class Property {
+  issuance: number;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  birthday: Date;
+  gender: number;
 
   clientCategory: string;
   clientName: string;
-  contactNumber: string;
+  mobileNumber: string;
   emailAddress: string;
 
   //p30
   policyNumber: string;
   subLine: string;
-  effectivityDate: string;
-  expirateionDate: string;
-  paymentMethod: string;
+  effectivityDate: Date;
+  expirationDate: Date;
+  paymentPlanCode: number;
   policyGroupCode: string;
   contractCode: number;
   subContractCode: number;
@@ -26,7 +32,7 @@ export class Property {
   //p20
   district: string;
   blockNumber: string;
-  zipCode: string;
+  zip: string;
   buildingContent: string;
   ratePercentage: number;
   buildingNumber: string;
