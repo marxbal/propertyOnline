@@ -1,10 +1,11 @@
 export class Property {
-  issuance: number;
+  type: number;
   firstName: string;
   middleName: string;
   lastName: string;
   birthday: Date;
   gender: number;
+  address1: string;
 
   clientCategory: string;
   clientName: string;

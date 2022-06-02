@@ -33,16 +33,16 @@ export class IssuanceComponent implements OnInit {
     window.scrollTo(0, 0);
 
     this.propertyFG = this.fb.group({
-      businessLine: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required],
+      subLine: ['', Validators.required],
+      effectivityDate: ['', Validators.required],
+      expiryDate: ['', Validators.required],
       clientCategory: ['', Validators.required],
-      clientName: ['', Validators.required],
+      firstName: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       emailAddress: ['', [Validators.required, Validators.email]],
       birthday: ['', Validators.required],
       documentType: ['', Validators.required],
-      documentId: ['', Validators.required],
+      documentCode: ['', Validators.required],
     });
 
     this.locationFG = this.fb.group({
@@ -114,7 +114,8 @@ export class IssuanceComponent implements OnInit {
   }
 
   defaultParam() {
-    this.property.issuance = 3;
+    this.property.userCode = 'MIV01101';
+    this.property.type = 8;
     this.property.paymentPlanCode = 1;
     this.property.subLine = '200';
     this.property.agentCode = 1101;
@@ -127,6 +128,14 @@ export class IssuanceComponent implements OnInit {
     this.property.middleName = 'XXX';
     this.property.lastName = 'XXX';
     this.property.gender = 1;
+
+    this.property.address1 = 
+      this.property.buildingNumber + " " +
+      this.property.village + ", " + 
+      this.property.buildingName + ", " +
+      this.property.streetName + ", " + 
+      this.property.barangay;
+
   }
 
   nextStep() {
