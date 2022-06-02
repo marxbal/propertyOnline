@@ -12,7 +12,7 @@ export class Property {
   mobileNumber: string;
   emailAddress: string;
 
-  //p30
+  //p30 
   policyNumber: string;
   subLine: string;
   effectivityDate: Date;
