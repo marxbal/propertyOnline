@@ -11,7 +11,7 @@ export class IssuanceService {
 
   async issueQuote(property: Property): Promise<ReturnDTO> {
     return this.app
-      .post(property, '/quote/issueQuote')
+      .post(property, '/issue/quote')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 }
