@@ -4,6 +4,8 @@ import { MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
 import { Property } from 'src/app/objects/property';
 import * as _ from 'lodash';
+import { IssuanceService } from 'src/app/services/issuance.service';
+import { ReturnDTO } from 'src/app/objects/return.dto';
 
 @Component({
   selector: 'app-issuance',
@@ -11,7 +13,9 @@ import * as _ from 'lodash';
   styleUrls: ['./issuance.component.css'],
 })
 export class IssuanceComponent implements OnInit {
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private issuanceService: IssuanceService) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
 
@@ -111,6 +115,12 @@ export class IssuanceComponent implements OnInit {
     if (this.stepper) {
 
       const requestData = this.buildData();
+      
+      this.issuanceService.issueQuote(requestData)
+        .then((result: ReturnDTO) =>{
+          console.log(result);
+      });
+
       console.log(requestData);
       console.log(this.selectedFile);
       this.stepper.next();

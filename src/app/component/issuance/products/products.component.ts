@@ -37,6 +37,7 @@ export class ProductsComponent implements OnInit {
           Swal.fire('Processing!', '', 'success');
           setTimeout(() => {
             Swal.close();
+
             if (this.nextStep != undefined) {
               this.next('');
             }
