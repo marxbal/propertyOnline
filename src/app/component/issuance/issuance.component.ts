@@ -86,15 +86,32 @@ export class IssuanceComponent implements OnInit {
     this.selectedFile = evt;
   }
 
+  buildData() {
+    this.property = _.merge(
+      this.propertyFG.value,
+      this.locationFG.value,
+      this.boundaryFG.value,
+      this.productFG.value
+    );
+
+    const rcDetails = [
+      {name: 'Garage', value: this.property.garage},
+      {name: 'Kitchen', value: this.property.kitchen},
+      {name: 'Gazebo', value: this.property.gazebo},
+      {name: 'Swimming Pool', value: this.property.swimmingPool},
+      {name: 'Fence', value: this.property.fence},
+    ]
+
+    this.property.relatedContentDetails = rcDetails;
+
+    return this.property;
+  }
+
   nextStep() {
     if (this.stepper) {
-      this.property = _.merge(
-        this.propertyFG.value,
-        this.locationFG.value,
-        this.boundaryFG.value,
-        this.productFG.value
-      );
-      console.log(this.property);
+
+      const requestData = this.buildData();
+      console.log(requestData);
       console.log(this.selectedFile);
       this.stepper.next();
     }
