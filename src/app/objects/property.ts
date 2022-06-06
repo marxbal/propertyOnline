@@ -60,11 +60,11 @@ export class Property {
   yearBuilt: string;
   numberOfFloors: string;
   
-  garage: string;
-  kitchen: string;
-  gazebo: string;
-  swimmingPool: string;
-  fence: string;
+  garage: number;
+  kitchen: number;
+  gazebo: number;
+  swimmingPool: number;
+  fence: number;
 
   lossHistory: string;
   previousInsurer: string;

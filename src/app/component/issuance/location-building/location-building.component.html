@@ -43,8 +43,8 @@
               formControlName="region"
               (selectionChange)="selectRegion()"
             >
-              <mat-option *ngFor="let list of testList" [value]="list.value">
-                {{ list.name }}
+              <mat-option *ngFor="let list of regionList" [value]="list.COD_ESTADO">
+                {{ list.NOM_ESTADO }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -57,8 +57,8 @@
               formControlName="province"
               (selectionChange)="selectProvince()"
             >
-              <mat-option *ngFor="let list of testList" [value]="list.value">
-                {{ list.name }}
+              <mat-option *ngFor="let list of provinceList" [value]="list.COD_PROV">
+                {{ list.NOM_PROV }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -67,8 +67,8 @@
           <mat-form-field appearance="fill">
             <mat-label>City</mat-label>
             <mat-select required formControlName="city">
-              <mat-option *ngFor="let list of testList" [value]="list.value">
-                {{ list.name }}
+              <mat-option *ngFor="let list of cityList" [value]="list.COD_LOCALIDAD">
+                {{ list.NOM_LOCALIDAD }}
               </mat-option>
             </mat-select>
           </mat-form-field>

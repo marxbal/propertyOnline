@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LOV } from '../objects/LOV';
+import { LOV } from '../objects/lov';
 import { OptionList } from '../objects/option.list';
 import { Property } from '../objects/property';
 import { Utility } from '../utils/utility';
@@ -52,31 +52,28 @@ export class LovService {
     return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
   }
 
-  // TODO
   async getRegion(): Promise < any[] > {
     const dto = new LOV(
       'A1000104',
       '5',
-      'COD_PAIS~PH');
+      'COD_PAIS~PHL');
     return await this.getIntLOV(dto, 'COD_ESTADO').then(lovs => lovs as any[]);
   }
 
-  // TODO
   async getProvince(property: Property): Promise < any[] > {
     const dto = new LOV(
       'A1000100',
       '6',
-      'COD_PAIS~PH' +
+      'COD_PAIS~PHL' +
       '|COD_ESTADO~' + property.region);
     return this.getIntLOV(dto, 'COD_PROV').then(lovs => lovs as any[]);
   }
 
-  // TODO
   async getCity(property: Property): Promise < any[] > {
     const dto = new LOV(
       'A1000102',
       '3',
-      'COD_PAIS~PH' +
+      'COD_PAIS~PHL' +
       '|COD_PROV~' + property.province);
     return this.getIntLOV(dto, 'COD_LOCALIDAD').then(lovs => lovs as any[]);
   }

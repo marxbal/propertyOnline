@@ -38,7 +38,7 @@ export class LocationBuildingComponent implements OnInit {
   getProvince() {
     const property = this.formGroup.value;
     this.lov.getProvince(property).then((list) => {
-      this.regionList = list;
+      this.provinceList = list;
     });
   }
 
