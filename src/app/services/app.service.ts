@@ -98,16 +98,13 @@ export class AppService {
     let title = 'Ooops! Something went wrong.';
     let message = 'Error! We are unable to process your request. Request response is emtpy. Please try again later.';
     if (!_.isEmpty(error)) {
-      const hasError = !Utility.isUndefined(error.error);
+      const hasMessage = !Utility.isUndefined(error.message);
 
-      title = 'Ooops! ' + (hasError ? error.error : err.name);
+      title = 'Ooops! ' + (hasMessage ? 'System Error' : err.name);
       message =
         '<p>Error! We are unable to process your request at the moment. ' +
-        (hasError ? error.message : err.message) +
-        '.</p>' +
-        '<p>Path: '+
-        (hasError ? error.path : err.url) +
-        '.</p>';
+        (hasMessage ? error.message : err.message) +
+        '.</p><p>Path: ' +  err.url + '.</p>';
     }
 
     Swal.fire({

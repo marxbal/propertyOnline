@@ -20,7 +20,6 @@ export class PropertyComponent implements OnInit {
   today: Date = new Date();
 
   businessLineList: any[] = [];
-  // businessLineList: Array<List> = [];
   clientCategory: any[] = [];
   documentIdList: any[] = [];
   uploadFile: any = null;
@@ -37,10 +36,6 @@ export class PropertyComponent implements OnInit {
 
   getLovs() {
     this.lov.getBusinessLine().then((list) => {
-      // list.forEach( l => {
-      //   var obj = {name: l.NOM_RAMO, value: l.COD_RAMO};
-      //   this.businessLineList.push(obj);
-      // });
       this.businessLineList = list;
     });
 

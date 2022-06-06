@@ -160,12 +160,6 @@ export class IssuanceComponent implements OnInit {
       
       this.issuanceService.issueQuote(requestData)
         .then((result: ReturnDTO) =>{
-          console.log('return: ' + result.message);
-      });
-
-      this.issuanceService.test()
-        .then((result: ReturnDTO) =>{
-          console.log('test: ' + result.message);
       });
 
       console.log(requestData);
