@@ -11,7 +11,7 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Business Line</mat-label>
-            <mat-select formControlName="subLine" required [(value)]="selected">
+            <mat-select formControlName="subLine" required [(ngModel)]="selected">
               <mat-option *ngFor="let list of businessLineList" [value]="list.COD_RAMO">
                 {{ list.NOM_RAMO }}
               </mat-option>
