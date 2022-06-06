@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { LovService } from 'src/app/services/lov.service';
 
-export interface Partners {
+export interface List {
   name: string;
   value: number;
 }
@@ -19,15 +19,10 @@ export class PropertyComponent implements OnInit {
   @Output() selectedFile = new EventEmitter();
   minDate: Date = new Date();
 
-  businessLineList: any[] = [];
+  businessLineList: Array<List> = [];
   clientCategory: any[] = [];
   uploadFile: any = null;
-  selected: number = 1;
-
-  testList: Array<Partners> = [
-    { name: 'test', value: 1 },
-    { name: 'test1', value: 2 },
-  ];
+  selected: string = "200"; //Residential
 
   ngOnInit(): void {
     this.getBusinessLine();
@@ -42,7 +37,9 @@ export class PropertyComponent implements OnInit {
 
   getBusinessLine() {
     this.lov.getBusinessLine().then((list) => {
-      this.businessLineList = list;
+      list.forEach( l => {
+        this.businessLineList.push({ name: l.NOM_VALOR, value: l.COD_VALOR });
+      });
     });
   }
 
