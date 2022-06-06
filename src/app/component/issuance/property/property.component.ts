@@ -20,7 +20,7 @@ export class PropertyComponent implements OnInit {
   @Output() selectedFile = new EventEmitter();
   minDate: Date = new Date();
 
-  businessLine: any[] = [];
+  businessLineList: any[] = [];
   clientCategory: any[] = [];
   uploadFile: any = null;
 
@@ -42,7 +42,7 @@ export class PropertyComponent implements OnInit {
 
   getBusinessLine() {
     this.lov.getBusinessLine().then((list) => {
-      this.businessLine = list;
+      this.businessLineList = list;
     });
   }
 
