@@ -22,7 +22,7 @@ export class PropertyComponent implements OnInit {
   businessLineList: any[] = [];
   clientCategory: any[] = [];
   uploadFile: any = null;
-  selected: string = "200";
+  selected: number = 1;
 
   testList: Array<Partners> = [
     { name: 'test', value: 1 },
