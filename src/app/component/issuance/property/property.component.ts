@@ -19,7 +19,8 @@ export class PropertyComponent implements OnInit {
   @Output() selectedFile = new EventEmitter();
   today: Date = new Date();
 
-  businessLineList: Array<List> = [];
+  businessLineList: any[] = [];
+  // businessLineList: Array<List> = [];
   clientCategory: any[] = [];
   documentIdList: any[] = [];
   uploadFile: any = null;
