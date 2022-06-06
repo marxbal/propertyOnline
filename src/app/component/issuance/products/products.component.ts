@@ -19,8 +19,8 @@ export class ProductsComponent implements OnInit {
     this.nextStep.emit(item);
   }
 
-  selectProduct(value: string) {
-    const title = value.toUpperCase();
+  selectProduct(value: string, label: string) {
+    const title = label.toUpperCase();
     Swal
       .fire({
         title: 'Are you sure?',

@@ -11,8 +11,8 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Business Line</mat-label>
-            <mat-select formControlName="subLine" required [(ngModel)]="selected">
-              <mat-option *ngFor="let list of testList" [value]="list.value">
+            <mat-select formControlName="subLine" required [(ngModel)]="selected" [disabled]="true">
+              <mat-option *ngFor="let list of businessLineList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
             </mat-select>
@@ -23,7 +23,7 @@
             <mat-label>Date Range</mat-label>
             <mat-date-range-input
               [rangePicker]="picker"
-              [min]="minDate"
+              [min]="today"
               required
             >
               <input
@@ -55,7 +55,7 @@
           <mat-form-field appearance="fill">
             <mat-label>Client Category</mat-label>
             <mat-select formControlName="clientCategory" required>
-              <mat-option *ngFor="let list of testList" [value]="list.value">
+              <mat-option *ngFor="let list of businessLineList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
             </mat-select>
@@ -64,8 +64,20 @@
         <div class="clearfix"></div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
-            <mat-label>Client Name</mat-label>
+            <mat-label>First Name</mat-label>
             <input formControlName="firstName" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Middle Name</mat-label>
+            <input formControlName="middleName" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
@@ -96,6 +108,7 @@
               formControlName="birthday"
               matInput
               [matDatepicker]="bdayPicker"
+              [max]="today"
               required
             />
             <mat-datepicker-toggle
@@ -110,8 +123,8 @@
           <mat-form-field appearance="fill">
             <mat-label>Government ID</mat-label>
             <mat-select formControlName="documentType" required>
-              <mat-option *ngFor="let list of testList" [value]="list.value">
-                {{ list.name }}
+              <mat-option *ngFor="let list of documentIdList" [value]="list.TIP_DOCUM">
+                {{ list.NOM_DOCUM }}
               </mat-option>
             </mat-select>
           </mat-form-field>

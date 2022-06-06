@@ -52,6 +52,11 @@ export class LovService {
     return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
   }
 
+  async getDocumentID() {
+    const dto = new LOV('A1002300', '3', 'COD_CIA~1');
+    return await this.getLOV(dto).then(lovs => lovs as any[]);
+  }
+
   async getRegion(): Promise < any[] > {
     const dto = new LOV(
       'A1000104',

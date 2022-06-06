@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { Router } from '@angular/router';
 import { Property } from 'src/app/objects/property';
 import * as _ from 'lodash';
 import { IssuanceService } from 'src/app/services/issuance.service';
@@ -39,6 +38,8 @@ export class IssuanceComponent implements OnInit {
       expirationDate: ['', Validators.required],
       clientCategory: ['', Validators.required],
       firstName: ['', Validators.required],
+      middleName: ['', Validators.required],
+      lastName: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       emailAddress: ['', [Validators.required, Validators.email]],
       birthday: ['', Validators.required],
@@ -133,13 +134,7 @@ export class IssuanceComponent implements OnInit {
     this.property.subLine = '200';
     this.property.agentCode = 1101;
     this.property.branchCode = 9203;
-    this.property.region = '10';
-    this.property.province = '15500';
-    this.property.city = '15001';
 
-    this.property.documentType = 'DRI';
-    this.property.middleName = 'XXX';
-    this.property.lastName = 'XXX';
     this.property.gender = 1;
 
     this.property.address1 = 

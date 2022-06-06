@@ -17,35 +17,34 @@ export class PropertyComponent implements OnInit {
 
   @Input() formGroup = new FormGroup({});
   @Output() selectedFile = new EventEmitter();
-  minDate: Date = new Date();
+  today: Date = new Date();
 
-  businessLineList: Array<List> = [];
+  businessLineList: any[] = [];
   clientCategory: any[] = [];
+  documentIdList: any[] = [];
   uploadFile: any = null;
-  selected: string = "200"; //Residential
+  selected: number = 200; //Residential
 
   ngOnInit(): void {
-    this.getBusinessLine();
-    this.getClientCategory();
+    this.getLovs();
   }
 
   onFileSelected(event: any): void {
     this.uploadFile = event.target.files[0] ?? null;
     this.selectedFile.emit(this.uploadFile);
-    console.log(this.uploadFile)
   }
 
-  getBusinessLine() {
+  getLovs() {
     this.lov.getBusinessLine().then((list) => {
-      list.forEach( l => {
-        this.businessLineList.push({ name: l.NOM_VALOR, value: l.COD_VALOR });
-      });
+      this.businessLineList = list;
     });
-  }
 
-  getClientCategory() {
     this.lov.getClientCategory().then((list) => {
       this.clientCategory = list;
+    });
+
+    this.lov.getDocumentID().then((list) => {
+      this.documentIdList = list;
     });
   }
 }
