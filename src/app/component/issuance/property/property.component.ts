@@ -16,13 +16,13 @@ export class PropertyComponent implements OnInit {
   constructor(private lov: LovService) {}
 
   @Input() formGroup = new FormGroup({});
-  // @Output() selectedFile: any = null;
   @Output() selectedFile = new EventEmitter();
   minDate: Date = new Date();
 
   businessLineList: any[] = [];
   clientCategory: any[] = [];
   uploadFile: any = null;
+  selected: string = "200";
 
   testList: Array<Partners> = [
     { name: 'test', value: 1 },
