@@ -15,8 +15,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  next(item: any) {
-    this.nextStep.emit(item);
+  next() {
+    this.nextStep.emit();
   }
 
   selectProduct(value: string, label: string) {
@@ -37,11 +37,10 @@ export class ProductsComponent implements OnInit {
           Swal.fire('Processing!', '', 'success');
           setTimeout(() => {
             Swal.close();
-
             if (this.nextStep != undefined) {
-              this.next('');
+              this.next();
             }
-          }, 2000);
+          }, 500);
         }
       });
   }

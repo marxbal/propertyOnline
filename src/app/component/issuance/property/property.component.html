@@ -119,6 +119,11 @@
           </mat-form-field>
         </div>
         <div class="clearfix"></div>
+        <div class="col-md-12">
+          <div class="alert alert-info">
+            <strong>Important Reminder:</strong> Please be reminded that we are now requiring clients to upload their Identification Card.
+          </div>
+        </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Government ID</mat-label>
@@ -142,13 +147,14 @@
         </div>
         <div class="col-md-3">
           <button type="button" mat-raised-button (click)="fileInput.click()">
-            Upload Photo
+            Upload ID Photo
           </button>
           <input
             hidden
             (change)="onFileSelected($event)"
             #fileInput
             type="file"
+            accept="image/*"
           />
           <div class="file-name">{{ uploadFile?.name }}</div>
         </div>

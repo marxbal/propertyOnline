@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LOV } from '../objects/lov';
-import { OptionList } from '../objects/option.list';
+// import { OptionList } from '../objects/option.list';
 import { Property } from '../objects/property';
 import { Utility } from '../utils/utility';
 import { AppService } from './app.service';
@@ -13,33 +13,33 @@ export class LovService {
 
   async getLOV(dto: LOV): Promise<any[]> {
     return this.app
-      .post(dto, '/getLOV')
+      .post(dto, 'getLOV')
       .then((objArr) => objArr as any[]);
   }
 
   async getIntLOV(dto: LOV, param: string): Promise<any[]> {
     return Utility.parseIntArray(
       await this.app
-        .post(dto, '/getLOV')
+        .post(dto, 'getLOV')
         .then((objArr) => objArr as any[]),
       param
     );
   }
 
-  async getOptionList(dto: OptionList): Promise<any[]> {
-    return this.app
-      .post(dto, '/getOptionList')
-      .then((objArr) => objArr as any[]);
-  }
+  // async getOptionList(dto: OptionList): Promise<any[]> {
+  //   return this.app
+  //     .post(dto, '/getOptionList')
+  //     .then((objArr) => objArr as any[]);
+  // }
 
-  async getIntOptionList(dto: OptionList, param: string): Promise<any[]> {
-    return Utility.parseIntArray(
-      await this.app
-        .post(dto, '/getOptionList')
-        .then((objArr) => objArr as any[]),
-      param
-    );
-  }
+  // async getIntOptionList(dto: OptionList, param: string): Promise<any[]> {
+  //   return Utility.parseIntArray(
+  //     await this.app
+  //       .post(dto, '/getOptionList')
+  //       .then((objArr) => objArr as any[]),
+  //     param
+  //   );
+  // }
 
   async getBusinessLine() {
     const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');

@@ -15,7 +15,8 @@ import * as m from 'moment';
 export class IssuanceComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    private issuanceService: IssuanceService) {}
+    private issuanceService: IssuanceService
+  ) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
 
@@ -56,7 +57,7 @@ export class IssuanceComponent implements OnInit {
       region: ['', Validators.required],
       province: ['', Validators.required],
       city: ['', Validators.required],
-      mailingAddress: ['', Validators.required],
+      address1: ['', Validators.required],
       buildingCapital: ['', Validators.required],
       contentValue: ['', null],
       yearBuilt: ['', Validators.required],
@@ -92,39 +93,41 @@ export class IssuanceComponent implements OnInit {
     this.selectedFile = evt;
   }
 
-  buildData() {
-    this.property = _.merge(
-      this.propertyFG.value,
-      this.locationFG.value,
-      this.boundaryFG.value,
-      this.productFG.value
-    );
-
+  buildRcDetails() {
     var rcDetails = [];
     if (this.property.garage > 0) {
-      const obj = {name: 'Garage', value: this.property.garage};
+      const obj = { name: 'Garage', value: this.property.garage };
       rcDetails.push(obj);
     }
     if (this.property.kitchen > 0) {
-      const obj = {name: 'Kitchen', value: this.property.kitchen};
+      const obj = { name: 'Kitchen', value: this.property.kitchen };
       rcDetails.push(obj);
     }
     if (this.property.gazebo > 0) {
-      const obj = {name: 'Gazebo', value: this.property.gazebo};
+      const obj = { name: 'Gazebo', value: this.property.gazebo };
       rcDetails.push(obj);
     }
     if (this.property.swimmingPool > 0) {
-      const obj = {name: 'Swimming Pool', value: this.property.swimmingPool};
+      const obj = { name: 'Swimming Pool', value: this.property.swimmingPool };
       rcDetails.push(obj);
     }
     if (this.property.fence > 0) {
-      const obj = {name: 'Fence', value: this.property.fence};
+      const obj = { name: 'Fence', value: this.property.fence };
       rcDetails.push(obj);
     }
     this.property.relatedContentDetails = rcDetails;
-    this.defaultParam();
+  }
 
-    return this.property;
+  convertDataDate() {
+    const iDate = m(new Date()).format('MM/DD/yyyy');
+    const effDate = m(this.property.effectivityDate).format('MM/DD/yyyy');
+    const exDate = m(this.property.expirationDate).format('MM/DD/yyyy');
+    const bDate = m(this.property.birthday).format('MM/DD/yyyy');
+
+    this.property.timestamp = iDate;
+    this.property.effectivityDate = effDate;
+    this.property.expirationDate = exDate;
+    this.property.birthday = bDate;
   }
 
   defaultParam() {
@@ -134,37 +137,54 @@ export class IssuanceComponent implements OnInit {
     this.property.subLine = '200';
     this.property.agentCode = 1101;
     this.property.branchCode = 9203;
-
     this.property.gender = 1;
 
-    this.property.address1 = 
-    this.property.buildingNumber + " " +
-    this.property.village + ", " + 
-    this.property.buildingName;
+    if (_.isEmpty(this.property.address1)) {
+      this.property.address1 =
+      this.property.buildingNumber +
+      ' ' +
+      this.property.village +
+      ', ' +
+      this.property.buildingName;
+    }
+  }
 
-    const iDate = m(new Date()).format("MM/DD/yyyy");
-    const effDate = m(this.property.effectivityDate).format("MM/DD/yyyy");
-    const exDate = m(this.property.expirationDate).format("MM/DD/yyyy");
-    const bDate = m(this.property.birthday).format("MM/DD/yyyy");
+  buildData() {
+    this.property = _.merge(
+      this.propertyFG.value,
+      this.locationFG.value,
+      this.boundaryFG.value,
+      this.productFG.value
+    );
 
-    this.property.timestamp = iDate;
-    this.property.effectivityDate = effDate;
-    this.property.expirationDate = exDate;
-    this.property.birthday = bDate;
+    this.buildRcDetails();
+    this.convertDataDate();
+    this.defaultParam();
+
+    return this.property;
   }
 
   nextStep() {
     if (this.stepper) {
-
       const requestData = this.buildData();
-      
-      this.issuanceService.issueQuote(requestData)
-        .then((result: ReturnDTO) =>{
-      });
+      const _this = this;
 
-      console.log(requestData);
-      console.log(this.selectedFile);
-      this.stepper.next();
+      const fd = new FormData();
+      if (this.selectedFile != null) {
+        fd.append('file', this.selectedFile);
+      }
+      fd.append('documentCode', this.property.documentCode);
+      fd.append('documentType', this.property.documentType);
+      this.issuanceService.upload(fd).then((result: ReturnDTO) => {
+        this.issuanceService.issueQuote(requestData).then((result: ReturnDTO) => {
+          console.log(result);
+          console.log(requestData);
+          console.log(this.selectedFile);
+          if (result.status == 200) {
+            _this.stepper?.next();
+          }
+        });
+      });      
     }
   }
 }
