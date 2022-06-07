@@ -1,11 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { LovService } from 'src/app/services/lov.service';
-
-export interface Partners {
-  name: string;
-  value: number;
-}
 
 @Component({
   selector: 'app-location-building',
@@ -14,10 +9,6 @@ export interface Partners {
 })
 export class LocationBuildingComponent implements OnInit {
   constructor(private lov: LovService) {}
-  testList: Array<Partners> = [
-    { name: 'test', value: 1 },
-    { name: 'test1', value: 2 },
-  ];
 
   @Input() formGroup = new FormGroup({});
   regionList: any[] = [];
@@ -51,6 +42,14 @@ export class LocationBuildingComponent implements OnInit {
 
   radioMailing(bool: boolean) {
     this.showMailingAddress = !bool;
+    if (this.showMailingAddress) {
+      this.formGroup.get("address1")?.setValidators([Validators.required]);//setting validation
+      this.formGroup.get("address1")?.setErrors({'required':true});//error message
+    } else {
+      this.formGroup.get("address1")?.clearValidators();//clear validation
+      this.formGroup.get("address1")?.setErrors(null);//updating error message
+    }
+    this.formGroup.updateValueAndValidity();//update validation
   }
 
   selectRegion() {

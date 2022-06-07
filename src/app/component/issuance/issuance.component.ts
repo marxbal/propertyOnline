@@ -57,7 +57,7 @@ export class IssuanceComponent implements OnInit {
       region: ['', Validators.required],
       province: ['', Validators.required],
       city: ['', Validators.required],
-      address1: ['', Validators.required],
+      address1: ['', null],
       buildingCapital: ['', Validators.required],
       contentValue: ['', null],
       yearBuilt: ['', Validators.required],
