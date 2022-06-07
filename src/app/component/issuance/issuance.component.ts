@@ -132,11 +132,11 @@ export class IssuanceComponent implements OnInit {
 
   defaultParam() {
     this.property.userCode = 'MIV01101';
-    this.property.type = 8;
+    this.property.type = 'q';
     this.property.paymentPlanCode = 1;
     this.property.subLine = '200';
     this.property.agentCode = 1101;
-    this.property.branchCode = 9203;
+    this.property.branchCode = 9201;
     this.property.gender = 1;
 
     if (_.isEmpty(this.property.address1)) {
@@ -175,6 +175,7 @@ export class IssuanceComponent implements OnInit {
       }
       fd.append('documentCode', this.property.documentCode);
       fd.append('documentType', this.property.documentType);
+
       this.issuanceService.upload(fd).then((result: ReturnDTO) => {
         this.issuanceService.issueQuote(requestData).then((result: ReturnDTO) => {
           console.log(result);

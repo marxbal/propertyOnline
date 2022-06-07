@@ -1,5 +1,5 @@
 export class Property {
-  type: number;
+  type: string;
   firstName: string;
   middleName: string;
   lastName: string;
