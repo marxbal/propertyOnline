@@ -1,11 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { LovService } from 'src/app/services/lov.service';
-
-export interface List {
-  name: string;
-  value: number;
-}
+import * as m from 'moment';
 
 @Component({
   selector: 'app-property',
@@ -18,9 +14,10 @@ export class PropertyComponent implements OnInit {
   @Input() formGroup = new FormGroup({});
   @Output() selectedFile = new EventEmitter();
   today: Date = new Date();
+  endDate: Date = m(new Date()).add(1, 'year').toDate();
 
   businessLineList: any[] = [];
-  clientCategory: any[] = [];
+  // clientCategory: any[] = [];
   documentIdList: any[] = [];
   uploadFile: any = null;
   selected: number = 200; //Residential
@@ -39,12 +36,17 @@ export class PropertyComponent implements OnInit {
       this.businessLineList = list;
     });
 
-    this.lov.getClientCategory().then((list) => {
-      this.clientCategory = list;
-    });
+    // this.lov.getClientCategory().then((list) => {
+    //   this.clientCategory = list;
+    // });
 
     this.lov.getDocumentID().then((list) => {
       this.documentIdList = list;
     });
+  }
+
+  setExpiryDate() {
+    const stringDate = this.formGroup.get('effectivityDate')?.value;
+    this.endDate = m(new Date(stringDate)).add(1, 'year').toDate();
   }
 }

@@ -7,7 +7,7 @@ export class Property {
   gender: number;
   address1: string;
 
-  clientCategory: string;
+  // clientCategory: string;
   clientName: string;
   mobileNumber: string;
   emailAddress: string;

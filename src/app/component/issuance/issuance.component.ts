@@ -37,7 +37,7 @@ export class IssuanceComponent implements OnInit {
       subLine: ['', Validators.required],
       effectivityDate: ['', Validators.required],
       expirationDate: ['', Validators.required],
-      clientCategory: ['', Validators.required],
+      // clientCategory: ['', Validators.required],
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],

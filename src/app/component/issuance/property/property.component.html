@@ -19,29 +19,39 @@
           </mat-form-field>
         </div>
         <div class="col-md-3">
-          <mat-form-field appearance="fill" floatLabel="always">
-            <mat-label>Date Range</mat-label>
-            <mat-date-range-input
-              [rangePicker]="picker"
+          <mat-form-field appearance="fill">
+            <mat-label>Start Date</mat-label>
+            <input
+              formControlName="effectivityDate"
+              matInput
+              [matDatepicker]="startPicker"
               [min]="today"
               required
-            >
-              <input
-                formControlName="effectivityDate"
-                matStartDate
-                placeholder="Start date"
-              />
-              <input
-                formControlName="expirationDate"
-                matEndDate
-                placeholder="End date"
-              />
-            </mat-date-range-input>
+              (ngModelChange)="setExpiryDate()"
+            />
             <mat-datepicker-toggle
               matSuffix
-              [for]="picker"
+              [for]="startPicker"
             ></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill">
+            <mat-label>End Date</mat-label>
+            <input
+              formControlName="expirationDate"
+              matInput
+              [matDatepicker]="endPicker"
+              required
+              [disabled]="true"
+              [(ngModel)]="endDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
@@ -52,14 +62,14 @@
     <mat-card-content>
       <div class="row">
         <div class="col-md-3">
-          <mat-form-field appearance="fill">
+          <!-- <mat-form-field appearance="fill">
             <mat-label>Client Category</mat-label>
             <mat-select formControlName="clientCategory" required>
               <mat-option *ngFor="let list of businessLineList" [value]="list.value">
                 {{ list.name }}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+          </mat-form-field> -->
         </div>
         <div class="clearfix"></div>
         <div class="col-md-3">
