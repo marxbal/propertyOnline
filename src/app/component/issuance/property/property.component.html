@@ -27,6 +27,7 @@
               [matDatepicker]="startPicker"
               [min]="today"
               required
+              [(ngModel)]="startDate"
               (ngModelChange)="setExpiryDate()"
             />
             <mat-datepicker-toggle

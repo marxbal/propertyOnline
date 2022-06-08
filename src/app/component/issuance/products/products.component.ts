@@ -15,10 +15,6 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  next() {
-    this.nextStep.emit();
-  }
-
   selectProduct(value: string, label: string) {
     const title = label.toUpperCase();
     Swal
@@ -34,11 +30,9 @@ export class ProductsComponent implements OnInit {
       .then((result) => {
         if (result.isConfirmed) {
           this.formGroup.get('product')?.setValue(value);
-          Swal.fire('Processing!', '', 'success');
           setTimeout(() => {
-            Swal.close();
             if (this.nextStep != undefined) {
-              this.next();
+              this.nextStep.emit();
             }
           }, 500);
         }

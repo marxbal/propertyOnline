@@ -20,10 +20,4 @@ export class IssuanceService {
       .post(data, 'issue/upload')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
-
-  async test(): Promise<ReturnDTO> {
-    return this.app
-      .get('test')
-      .then((ReturnDTO) => ReturnDTO as ReturnDTO);
-  }
 }

@@ -6,6 +6,21 @@ import * as _ from 'lodash';
 import { IssuanceService } from 'src/app/services/issuance.service';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import * as m from 'moment';
+import { table } from 'src/app/objects/table';
+import Swal from 'sweetalert2';
+
+const ELEMENT_DATA: table[] = [
+  { title: 'Premium', value: 130 },
+  { title: 'Management Fee', value: 2300.3 },
+  { title: 'Value Added Tax', value: 400 },
+  { title: 'Management Fee VAT', value: 100 },
+  { title: 'Local Government Tax', value: 100 },
+  { title: 'Fire Service Tax', value: 1000 },
+  { title: 'Interest', value: 500 },
+  { title: 'Sub Total', value: 5400.3 },
+  { title: 'Digital Discount', value: 1000 },
+  { title: 'Total', value: 4400.3 },
+];
 
 @Component({
   selector: 'app-issuance',
@@ -13,6 +28,7 @@ import * as m from 'moment';
   styleUrls: ['./issuance.component.css'],
 })
 export class IssuanceComponent implements OnInit {
+  
   constructor(
     private fb: FormBuilder,
     private issuanceService: IssuanceService
@@ -29,6 +45,10 @@ export class IssuanceComponent implements OnInit {
   fg: FormGroup = new FormGroup({});
 
   selectedFile: any = null;
+
+  paymentDetails: table[] = ELEMENT_DATA;
+  coverages: table[] = ELEMENT_DATA;
+  referenceNumber: string = 'xxx-xxx-xxx';
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -176,13 +196,28 @@ export class IssuanceComponent implements OnInit {
       fd.append('documentCode', this.property.documentCode);
       fd.append('documentType', this.property.documentType);
 
-      this.issuanceService.upload(fd).then((result: ReturnDTO) => {
-        this.issuanceService.issueQuote(requestData).then((result: ReturnDTO) => {
-          console.log(result);
-          console.log(requestData);
-          console.log(this.selectedFile);
+      this.issuanceService.upload(fd).then(
+        (uploadResult: ReturnDTO) => {
+        this.issuanceService.issueQuote(requestData).then(
+          (result: ReturnDTO) => {
           if (result.status == 200) {
-            _this.stepper?.next();
+            this.referenceNumber = result.obj["policyNumber"];
+
+            const paymentDetails = result.obj["paymentDetails"];
+            paymentDetails.forEach((details: any) => {
+              this.paymentDetails.push(new table(details.name, details.value))
+            });
+
+            const coverages = result.obj["coverages"];
+            coverages.forEach((details: any) => {
+              this.coverages.push(new table(details.name, details.value))
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: "System Error",
+              text: result.message,
+            });
           }
         });
       });      

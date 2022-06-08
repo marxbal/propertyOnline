@@ -22,7 +22,10 @@
         </mat-step>
 
         <mat-step [stepControl]="fg" label="Payment and Coverage">
-          <app-coverage [formGroup]="fg"></app-coverage>
+          <app-coverage [formGroup]="fg"
+            [referenceNumber]="referenceNumber"
+            [paymentDetails]="paymentDetails"
+            [coverages]="coverages"></app-coverage>
         </mat-step>
       </mat-stepper>
     </div>

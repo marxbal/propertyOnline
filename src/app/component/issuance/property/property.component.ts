@@ -15,6 +15,7 @@ export class PropertyComponent implements OnInit {
   @Output() selectedFile = new EventEmitter();
   today: Date = new Date();
   endDate: Date = m(new Date()).add(1, 'year').toDate();
+  startDate: Date = new Date();
 
   businessLineList: any[] = [];
   // clientCategory: any[] = [];
