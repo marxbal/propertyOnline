@@ -15,9 +15,15 @@ export class IssuanceService {
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 
+  async sendEmail(policyNumber: string): Promise<ReturnDTO> {
+    return this.app
+      .post(policyNumber, 'sendEmail')
+      .then((ReturnDTO) => ReturnDTO as ReturnDTO);
+  }
+
   async upload(data: FormData): Promise<ReturnDTO> {
     return this.app
-      .post(data, 'issue/upload')
+      .post(data, 'upload')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 }

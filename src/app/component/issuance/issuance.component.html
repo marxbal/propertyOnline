@@ -3,7 +3,7 @@
 
   <div class="container-fluid">
     <div class="container">
-      <mat-stepper [linear]="false" #stepper>
+      <mat-stepper [linear]="true" #stepper>
         <mat-step [stepControl]="propertyFG" label="Property Insurance Information">
           <app-property [formGroup]="propertyFG"
           (selectedFile)="getSelectedFile($event)"></app-property>
