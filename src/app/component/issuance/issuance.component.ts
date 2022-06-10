@@ -33,8 +33,7 @@ export class IssuanceComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private issuanceService: IssuanceService,
-    private util: Utility
+    private issuanceService: IssuanceService
   ) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
