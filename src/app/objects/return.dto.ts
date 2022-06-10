@@ -1,5 +1,5 @@
 export class ReturnDTO {
-  status: number;
+  status: boolean;
   message: string;
   obj: any;
 

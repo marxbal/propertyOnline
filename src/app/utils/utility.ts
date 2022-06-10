@@ -75,6 +75,36 @@ export class Utility {
     return [];
   }
 
+  getPaymentDetailsTitle(name: string) {
+    let title = '';
+
+    switch (name) {
+      case 'docStamp':
+        title: 'Document Stamp';
+        break;
+      case 'eVat':
+        title: 'E-VAT';
+        break;
+      case 'lgt':
+        title: 'Local Government Tax';
+        break;
+      case 'others':
+        title: 'Others';
+        break;
+      case 'grossPremium':
+        title: 'Gross Premium';
+        break;
+      case 'receipt':
+        title: 'Receipt';
+        break;
+      default:
+        title: 'Net Premium';
+        break;
+    }
+
+    return title;
+  }
+
   //format date string
   // static formatDate(d: Date, f ? : string) {
   //   const format = !this.isUndefined(f) ? f : "MM/DD/YYYY";

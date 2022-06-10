@@ -8,6 +8,9 @@ import { ReturnDTO } from 'src/app/objects/return.dto';
 import * as m from 'moment';
 import { table } from 'src/app/objects/table';
 import Swal from 'sweetalert2';
+import { paymentDetails } from 'src/app/objects/paymentDetails';
+import { UtilService } from 'src/app/services/util.service';
+import { Utility } from 'src/app/utils/utility';
 
 const ELEMENT_DATA: table[] = [
   { title: 'Premium', value: 130 },
@@ -31,7 +34,8 @@ export class IssuanceComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private issuanceService: IssuanceService
+    private issuanceService: IssuanceService,
+    private util: Utility
   ) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
@@ -200,18 +204,19 @@ export class IssuanceComponent implements OnInit {
         (uploadResult: ReturnDTO) => {
         this.issuanceService.issueQuote(requestData).then(
           (result: ReturnDTO) => {
-          if (result.status == 200) {
-            this.referenceNumber = result.obj["policyNumber"];
+          if (result.status) {
+            const pDetails = result.obj as paymentDetails;
 
-            const paymentDetails = result.obj["paymentDetails"];
-            paymentDetails.forEach((details: any) => {
-              this.paymentDetails.push(new table(details.name, details.value))
+            // const paymentDetails = result.obj["paymentDetails"];
+            Object.keys(pDetails).forEach((key: string, value: any) => {
+              this.util.getPaymentDetailsTitle(key);
+              this.paymentDetails.push(new table(this.util.getPaymentDetailsTitle(key), value))
             });
 
-            const coverages = result.obj["coverages"];
-            coverages.forEach((details: any) => {
-              this.coverages.push(new table(details.name, details.value))
-            });
+            // const coverages = result.obj["coverages"];
+            // coverages.forEach((details: any) => {
+            //   this.coverages.push(new table(details.name, details.value))
+            // });
           } else {
             Swal.fire({
               icon: 'error',

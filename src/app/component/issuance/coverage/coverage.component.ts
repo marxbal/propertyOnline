@@ -24,7 +24,7 @@ export class CoverageComponent implements OnInit {
   submit() {
     const policyNumber = this.referenceNumber;
     this.issuanceService.sendEmail(policyNumber).then((result: ReturnDTO) => {
-      if (result.status == 200) {
+      if (result.status) {
         Swal.fire({
           title: 'Thank you for submiting your application',
           html:
