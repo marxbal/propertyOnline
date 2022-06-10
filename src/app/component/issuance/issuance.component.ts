@@ -9,7 +9,6 @@ import * as m from 'moment';
 import { table } from 'src/app/objects/table';
 import Swal from 'sweetalert2';
 import { paymentDetails } from 'src/app/objects/paymentDetails';
-import { UtilService } from 'src/app/services/util.service';
 import { Utility } from 'src/app/utils/utility';
 
 const ELEMENT_DATA: table[] = [
@@ -209,8 +208,7 @@ export class IssuanceComponent implements OnInit {
 
             // const paymentDetails = result.obj["paymentDetails"];
             Object.keys(pDetails).forEach((key: string, value: any) => {
-              this.util.getPaymentDetailsTitle(key);
-              this.paymentDetails.push(new table(this.util.getPaymentDetailsTitle(key), value))
+              this.paymentDetails.push(new table(Utility.getPaymentDetailsTitle(key), value))
             });
 
             // const coverages = result.obj["coverages"];

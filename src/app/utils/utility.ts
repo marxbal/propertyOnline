@@ -75,7 +75,7 @@ export class Utility {
     return [];
   }
 
-  getPaymentDetailsTitle(name: string) {
+  static getPaymentDetailsTitle(name: string) {
     let title = '';
 
     switch (name) {
