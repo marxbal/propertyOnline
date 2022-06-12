@@ -76,19 +76,25 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>First Name</mat-label>
-            <input formControlName="firstName" matInput required />
+            <input formControlName="firstName"
+            oninput="this.value = this.value.toUpperCase()"
+            matInput required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Middle Name</mat-label>
-            <input formControlName="middleName" matInput required />
+            <input formControlName="middleName"
+            oninput="this.value = this.value.toUpperCase()"
+            matInput required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Last Name</mat-label>
-            <input formControlName="lastName" matInput required />
+            <input formControlName="lastName"
+            oninput="this.value = this.value.toUpperCase()"
+            matInput required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
@@ -119,7 +125,7 @@
               formControlName="birthday"
               matInput
               [matDatepicker]="bdayPicker"
-              [max]="today"
+              [max]="bdayLimitDate"
               required
             />
             <mat-datepicker-toggle

@@ -204,11 +204,14 @@ export class IssuanceComponent implements OnInit {
           (result: ReturnDTO) => {
           if (result.status) {
             const pDetails = result.obj as paymentDetails;
+            this.referenceNumber = pDetails.policyNumber;
 
             this.paymentDetails = [];
             Object.keys(pDetails).forEach((key: string) => {
-              const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj[key]};
-              this.paymentDetails.push(obj);
+              if (("policyNumber" != key) && ("receipt" != key)) {
+                const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj[key]};
+                this.paymentDetails.push(obj);
+              }
             });
 
             _this.stepper?.next();

@@ -14,6 +14,7 @@ export class PropertyComponent implements OnInit {
   @Input() formGroup = new FormGroup({});
   @Output() selectedFile = new EventEmitter();
   today: Date = new Date();
+  bdayLimitDate: Date = m(new Date()).subtract(18, 'year').toDate();
   endDate: Date = m(new Date()).add(1, 'year').toDate();
   startDate: Date = new Date();
 

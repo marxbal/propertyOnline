@@ -7,32 +7,42 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>House Building Number</mat-label>
-            <input matInput formControlName="buildingNumber" required />
+            <input matInput formControlName="buildingNumber"
+            oninput="this.value = this.value.toUpperCase()"
+            required />
           </mat-form-field>
         </div>
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Village/Subdivision</mat-label>
-            <input matInput formControlName="village" required />
+            <input matInput formControlName="village"
+            oninput="this.value = this.value.toUpperCase()"
+            required />
           </mat-form-field>
         </div>
         <div class="clearfix"></div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Building Name</mat-label>
-            <input matInput formControlName="buildingName" required />
+            <input matInput formControlName="buildingName"
+            oninput="this.value = this.value.toUpperCase()"
+            required />
           </mat-form-field>
         </div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Street Name</mat-label>
-            <input matInput formControlName="streetName" required />
+            <input matInput formControlName="streetName"
+            oninput="this.value = this.value.toUpperCase()"
+            required />
           </mat-form-field>
         </div>
         <div class="col-md-4">
           <mat-form-field appearance="fill">
             <mat-label>Barangay</mat-label>
-            <input matInput formControlName="barangay" required />
+            <input matInput formControlName="barangay"
+            oninput="this.value = this.value.toUpperCase()"
+            required />
           </mat-form-field>
         </div>
         <div class="col-md-4">
@@ -93,7 +103,9 @@
         <div class="col-md-8" *ngIf="showMailingAddress">
           <mat-form-field appearance="fill">
             <mat-label>Mailing Address</mat-label>
-            <input matInput formControlName="address1" required maxlength="40"/>
+            <input matInput formControlName="address1" 
+            oninput="this.value = this.value.toUpperCase()"
+            required maxlength="40"/>
           </mat-form-field>
         </div>
       </div>
@@ -160,6 +172,7 @@
               formControlName="constructionOfBuilding"
               required
               matTooltip="Info about the action"
+              oninput="this.value = this.value.toUpperCase()"
             ></textarea>
           </mat-form-field>
         </div>
@@ -171,6 +184,7 @@
               formControlName="occupancyOfBuilding"
               required
               matTooltip="Info about the action"
+              oninput="this.value = this.value.toUpperCase()"
             ></textarea>
           </mat-form-field>
         </div>
