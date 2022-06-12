@@ -10,6 +10,7 @@ import { table } from 'src/app/objects/table';
 import Swal from 'sweetalert2';
 import { paymentDetails } from 'src/app/objects/paymentDetails';
 import { Utility } from 'src/app/utils/utility';
+import { emailData } from 'src/app/objects/emailData';
 
 const ELEMENT_DATA: table[] = [
   { title: 'Premium', value: 130 },
@@ -51,6 +52,7 @@ export class IssuanceComponent implements OnInit {
   paymentDetails: table[] = [];
   coverages: table[] = ELEMENT_DATA;
   referenceNumber: string = 'xxx-xxx-xxx';
+  emailData: emailData;
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -205,6 +207,11 @@ export class IssuanceComponent implements OnInit {
           if (result.status) {
             const pDetails = result.obj as paymentDetails;
             this.referenceNumber = pDetails.policyNumber;
+
+            this.emailData.contactNumber = requestData.mobileNumber;
+            this.emailData.email = requestData.emailAddress;
+            this.emailData.policyNumber = pDetails.policyNumber;
+            this.emailData.clientName = requestData.firstName + " " + requestData.middleName + " " + requestData.lastName;
 
             this.paymentDetails = [];
             Object.keys(pDetails).forEach((key: string) => {

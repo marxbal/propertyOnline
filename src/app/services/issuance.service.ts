@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { emailData } from '../objects/emailData';
 import { Property } from '../objects/property';
 import { ReturnDTO } from '../objects/return.dto';
 import { AppService } from './app.service';
@@ -15,9 +16,9 @@ export class IssuanceService {
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 
-  async sendEmail(policyNumber: string): Promise<ReturnDTO> {
+  async sendEmail(emailData: emailData): Promise<ReturnDTO> {
     return this.app
-      .post({}, 'sendEmail?policyNumber='+policyNumber)
+      .post(emailData, 'sendEmail')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 

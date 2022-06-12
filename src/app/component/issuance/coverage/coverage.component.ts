@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { emailData } from 'src/app/objects/emailData';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import { table } from 'src/app/objects/table';
 import { IssuanceService } from 'src/app/services/issuance.service';
@@ -17,12 +18,13 @@ export class CoverageComponent implements OnInit {
   @Input() paymentDetails: table[] = [];
   @Input() coverages: table[] = [];
   @Input() referenceNumber: string = 'XXX-XXX-XXX';
+  @Input() emailData: emailData = new emailData();
 
   ngOnInit(): void {}
 
   submit() {
     const policyNumber = this.referenceNumber;
-    this.issuanceService.sendEmail(policyNumber).then((result: ReturnDTO) => {
+    this.issuanceService.sendEmail(emailData).then((result: ReturnDTO) => {
       if (result.status) {
         Swal.fire({
           title: 'Thank you for submiting your application',
