@@ -29,7 +29,7 @@ export class CoverageComponent implements OnInit {
         Swal.fire({
           title: 'Thank you for submiting your application',
           html:
-            '<p>Your reference number is</p> <p><strong>' +
+            '<p>Your policy number is</p> <p><strong>' +
             result.obj +
             '</strong></p>' +
             '<p>Our sales representative will contact you for the status of your application.</p>' +
