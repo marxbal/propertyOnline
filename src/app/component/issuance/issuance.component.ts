@@ -211,6 +211,7 @@ export class IssuanceComponent implements OnInit {
               this.paymentDetails.push(obj);
             });
 
+            _this.stepper?.next();
             // const coverages = result.obj["coverages"];
             // coverages.forEach((details: any) => {
             //   this.coverages.push(new table(details.name, details.value))
@@ -223,7 +224,7 @@ export class IssuanceComponent implements OnInit {
             });
           }
         });
-      });      
+      });     
     }
   }
 }
