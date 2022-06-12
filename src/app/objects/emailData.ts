@@ -4,6 +4,5 @@ export class emailData {
   contactNumber: string;
   clientName: string;
   
-  constructor() {
-  }
+  constructor() {}
 }
