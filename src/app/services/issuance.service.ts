@@ -17,7 +17,7 @@ export class IssuanceService {
 
   async sendEmail(policyNumber: string): Promise<ReturnDTO> {
     return this.app
-      .post(policyNumber, 'sendEmail')
+      .post({}, 'sendEmail?policyNumber='+policyNumber)
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 

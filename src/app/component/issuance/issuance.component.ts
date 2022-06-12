@@ -48,7 +48,7 @@ export class IssuanceComponent implements OnInit {
 
   selectedFile: any = null;
 
-  paymentDetails: table[] = ELEMENT_DATA;
+  paymentDetails: table[] = [];
   coverages: table[] = ELEMENT_DATA;
   referenceNumber: string = 'xxx-xxx-xxx';
 
@@ -206,7 +206,7 @@ export class IssuanceComponent implements OnInit {
             const pDetails = result.obj as paymentDetails;
 
             this.paymentDetails = [];
-            Object.keys(pDetails).forEach((key: string, value: any) => {
+            Object.keys(pDetails).forEach((key: string) => {
               const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj[key]};
               this.paymentDetails.push(obj);
             });

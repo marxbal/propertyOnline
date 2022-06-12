@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Property } from 'src/app/objects/property';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import { table } from 'src/app/objects/table';
 import { IssuanceService } from 'src/app/services/issuance.service';
@@ -29,7 +28,7 @@ export class CoverageComponent implements OnInit {
           title: 'Thank you for submiting your application',
           html:
             '<p>Your reference number is</p> <p><strong>' +
-            result.obj["policyNumber"] +
+            result.obj +
             '</strong></p>' +
             '<p>Our sales representative will contact you for the status of your application.</p>' +
             '<p>Please note that rates may vary based on our assessment.</p>',

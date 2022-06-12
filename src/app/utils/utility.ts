@@ -80,25 +80,25 @@ export class Utility {
 
     switch (name) {
       case 'docStamp':
-        title: 'Document Stamp';
+        title = 'Document Stamp';
         break;
       case 'eVat':
-        title: 'E-VAT';
+        title = 'E-VAT';
         break;
       case 'lgt':
-        title: 'Local Government Tax';
+        title = 'Local Government Tax';
         break;
       case 'others':
-        title: 'Others';
+        title = 'Others';
         break;
       case 'grossPremium':
-        title: 'Gross Premium';
+        title = 'Gross Premium';
         break;
       case 'receipt':
-        title: 'Receipt';
+        title = 'Receipt';
         break;
       default:
-        title: 'Net Premium';
+        title = 'Net Premium';
         break;
     }
 
