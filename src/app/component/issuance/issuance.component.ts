@@ -211,10 +211,10 @@ export class IssuanceComponent implements OnInit {
             this.emailData = {
               contactNumber: requestData.mobileNumber,
               email: requestData.emailAddress,
-              policyNumber: requestData.policyNumber,
+              policyNumber: pDetails.policyNumber,
               clientName: requestData.firstName + " " + requestData.middleName + " " + requestData.lastName
             }
-            
+
             this.paymentDetails = [];
             Object.keys(pDetails).forEach((key: string) => {
               if (("policyNumber" != key) && ("receipt" != key)) {
