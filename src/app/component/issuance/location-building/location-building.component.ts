@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { LovService } from 'src/app/services/lov.service';
+import * as m from 'moment';
 
 @Component({
   selector: 'app-location-building',
@@ -15,9 +16,14 @@ export class LocationBuildingComponent implements OnInit {
   provinceList: any[] = [];
   cityList: any[] = [];
   showMailingAddress: boolean = false;
+  yearList: any[] = [];
+  defaultYearBuilt: number = m(new Date()).year();
+  defaultNoOfFloors: number = 1;
+
 
   ngOnInit(): void {
     this.getRegion();
+    this.getYearList();
   }
 
   getRegion() {
@@ -62,5 +68,14 @@ export class LocationBuildingComponent implements OnInit {
     setTimeout(() => {
       this.getCity();
     }, 500);
+  }
+
+  getYearList() {
+    const maxYear = m(new Date()).year();
+    const minYear = 1800;
+
+    for (var i = maxYear; i >= minYear; i--) {
+      this.yearList.push(i);
+    }
   }
 }

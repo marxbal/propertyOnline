@@ -123,6 +123,7 @@
               type="number"
               formControlName="buildingCapital"
               required
+              min="1"
               matTooltip="Info about the action"
             />
             <span matPrefix>PHP&nbsp;</span>
@@ -145,12 +146,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill">
             <mat-label>Year Built</mat-label>
-            <input
-              type="number"
-              matInput
-              formControlName="yearBuilt"
-              required
-            />
+            <mat-select required formControlName="yearBuilt" [(ngModel)]="defaultYearBuilt">
+              <mat-option *ngFor="let list of yearList" [value]="list">
+                {{ list }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="col-md-3">
@@ -160,6 +160,8 @@
               type="number"
               matInput
               formControlName="numberOfFloors"
+              min="1"
+              [(ngModel)]="defaultNoOfFloors"
               required
             />
           </mat-form-field>
