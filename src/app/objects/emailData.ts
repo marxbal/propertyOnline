@@ -3,6 +3,7 @@ export class emailData {
   email: string;
   contactNumber: string;
   clientName: string;
+  productCode: number;
   
   constructor() {}
 }

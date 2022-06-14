@@ -211,7 +211,8 @@ export class IssuanceComponent implements OnInit {
               contactNumber: requestData.mobileNumber,
               email: requestData.emailAddress,
               policyNumber: pDetails.policyNumber,
-              clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName
+              clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName,
+              productCode: requestData.product
             }
 
             this.paymentDetails = [];

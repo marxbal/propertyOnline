@@ -166,19 +166,21 @@
             />
           </mat-form-field>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <mat-form-field appearance="fill">
             <mat-label>Construction of Building</mat-label>
-            <textarea
-              matInput
-              formControlName="constructionOfBuilding"
+            <mat-select
               required
+              formControlName="constructionOfBuilding"
               matTooltip="Building material(s)  used for the structure (e.g. concrete, hollow blocks, hardwood)"
-              oninput="this.value = this.value.toUpperCase()"
-            ></textarea>
+            >
+              <mat-option *ngFor="let list of constructionOfBuildingList" [value]="list">
+                {{ list }}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <mat-form-field appearance="fill">
             <mat-label>Occupancy of Building</mat-label>
             <textarea
@@ -186,6 +188,7 @@
               formControlName="occupancyOfBuilding"
               required
               matTooltip="What is the property mainly being used for? e.g. Residential"
+              [(ngModel)]="defaultOccupancyOfBuilding"
               oninput="this.value = this.value.toUpperCase()"
             ></textarea>
           </mat-form-field>

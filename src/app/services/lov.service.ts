@@ -41,15 +41,20 @@ export class LovService {
   //   );
   // }
 
-  async getBusinessLine() {
-    const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');
-    return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
-  }
+  // async getBusinessLine() {
+  //   const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');
+  //   return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
+  // }
 
   // TODO
-  async getClientCategory() {
-    const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');
-    return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
+  // async getClientCategory() {
+  //   const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');
+  //   return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
+  // }
+
+  async getCoverages(productCode: number) {
+    const dto = new LOV('A1002150', '12', 'COD_CIA~1|cod_ramo~200|fec_velidez~15102014|cod_modalidad~' + productCode);
+    return await this.getLOV(dto).then(lovs => lovs as any[]);
   }
 
   async getDocumentID() {

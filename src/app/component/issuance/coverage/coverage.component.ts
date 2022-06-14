@@ -4,6 +4,7 @@ import { emailData } from 'src/app/objects/emailData';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import { table } from 'src/app/objects/table';
 import { IssuanceService } from 'src/app/services/issuance.service';
+import { LovService } from 'src/app/services/lov.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,17 +15,22 @@ import Swal from 'sweetalert2';
 export class CoverageComponent implements OnInit {
   constructor(
     private issuanceService: IssuanceService,
-    private router: Router) {}
+    private router: Router,
+    private lov: LovService) {}
 
   displayedColumns: string[] = ['title', 'value'];
   showSubmitBtn: boolean = true;
+  coverageList: any[] = [];
 
   @Input() paymentDetails: table[] = [];
   @Input() coverages: table[] = [];
   @Input() referenceNumber: string = 'XXX-XXX-XXX';
+  @Input() productCode: string = '20001';
   @Input() emailData: emailData = new emailData();
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCoverage(this.emailData.productCode);
+  }
 
   submit() {
     const policyNumber = this.referenceNumber;
@@ -49,6 +55,12 @@ export class CoverageComponent implements OnInit {
         });
       }
     }); 
+  }
+
+  getCoverage(productCode: number){
+    this.lov.getCoverages(productCode).then((res)=> {
+      this.coverageList = res;
+    });
   }
 
   goBackToHomepage() {

@@ -19,6 +19,27 @@ export class LocationBuildingComponent implements OnInit {
   yearList: any[] = [];
   defaultYearBuilt: number = m(new Date()).year();
   defaultNoOfFloors: number = 1;
+  defaultOccupancyOfBuilding: string = "RESIDENTIAL";
+
+  constructionOfBuildingList: any[] = [
+    "Reinforced Concrete",
+    "Concrete Hollow Blocks",
+    "Bricks",
+    "Stones",
+    "With KHB Zocalo Wall",
+    "Steel",
+    "Asbestos",
+    "Aluminum",
+    "Galvanized Iron",
+    "Open-sided structures with solid or hard roof with concrete post",
+    "Concrete and Timber",
+    "Bamboo",
+    "Sawali",
+    "Nipa",
+    "Cogon",
+    "Thatch",
+    "Grass"
+  ]
 
 
   ngOnInit(): void {
