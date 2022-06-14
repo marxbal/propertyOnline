@@ -18,14 +18,11 @@ export class PropertyComponent implements OnInit {
   endDate: Date = m(new Date()).add(1, 'year').toDate();
   startDate: Date = new Date();
 
-  businessLineList: any[] = [];
-  // clientCategory: any[] = [];
   documentIdList: any[] = [];
   uploadFile: any = null;
-  selected: number = 200; //Residential
 
   ngOnInit(): void {
-    this.getLovs();
+    this.getDocumentID();
   }
 
   onFileSelected(event: any): void {
@@ -33,15 +30,7 @@ export class PropertyComponent implements OnInit {
     this.selectedFile.emit(this.uploadFile);
   }
 
-  getLovs() {
-    this.lov.getBusinessLine().then((list) => {
-      this.businessLineList = list;
-    });
-
-    // this.lov.getClientCategory().then((list) => {
-    //   this.clientCategory = list;
-    // });
-
+  getDocumentID() {
     this.lov.getDocumentID().then((list) => {
       this.documentIdList = list;
     });

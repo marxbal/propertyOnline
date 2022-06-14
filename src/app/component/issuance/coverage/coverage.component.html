@@ -45,9 +45,12 @@
   </mat-card-content>
 
   <mat-card-actions align="end">
-    <div>
+    <div *ngIf="showSubmitBtn">
       <button mat-raised-button matStepperPrevious color="basic">Choose product</button>
       <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+    </div>
+    <div *ngIf="!showSubmitBtn">
+      <button mat-raised-button color="basic" (click)="goBackToHomepage()">Home Page</button>
     </div>
   </mat-card-actions>
 </mat-card>

@@ -61,9 +61,8 @@ export class IssuanceComponent implements OnInit {
       subLine: ['', Validators.required],
       effectivityDate: ['', Validators.required],
       expirationDate: ['', Validators.required],
-      // clientCategory: ['', Validators.required],
       firstName: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: ['', null],
       lastName: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       emailAddress: ['', [Validators.required, Validators.email]],
@@ -212,7 +211,7 @@ export class IssuanceComponent implements OnInit {
               contactNumber: requestData.mobileNumber,
               email: requestData.emailAddress,
               policyNumber: pDetails.policyNumber,
-              clientName: requestData.firstName + " " + requestData.middleName + " " + requestData.lastName
+              clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName
             }
 
             this.paymentDetails = [];

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { emailData } from 'src/app/objects/emailData';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import { table } from 'src/app/objects/table';
@@ -11,9 +12,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./coverage.component.css'],
 })
 export class CoverageComponent implements OnInit {
-  constructor(private issuanceService: IssuanceService) {}
+  constructor(
+    private issuanceService: IssuanceService,
+    private router: Router) {}
 
   displayedColumns: string[] = ['title', 'value'];
+  showSubmitBtn: boolean = true;
 
   @Input() paymentDetails: table[] = [];
   @Input() coverages: table[] = [];
@@ -26,10 +30,11 @@ export class CoverageComponent implements OnInit {
     const policyNumber = this.referenceNumber;
     this.issuanceService.sendEmail(this.emailData).then((result: ReturnDTO) => {
       if (result.status) {
+        this.showSubmitBtn = false;
         Swal.fire({
           title: 'Thank you for submiting your application',
           html:
-            '<p>Your policy number is</p> <p><strong>' +
+            '<p>Your reference number is</p> <p><strong>' +
             result.obj +
             '</strong></p>' +
             '<p>Our sales representative will contact you for the status of your application.</p>' +
@@ -44,7 +49,9 @@ export class CoverageComponent implements OnInit {
         });
       }
     }); 
-    
-    
+  }
+
+  goBackToHomepage() {
+    this.router.navigateByUrl('');
   }
 }

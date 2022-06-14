@@ -43,6 +43,10 @@ table {
   background-color: #d81e05;
 }
 
+.mat-tooltip {
+  font-size: 16px !important;
+}
+
 h2.swal2-title {
   font-size: 1.875em !important;
   font-weight: 600 !important;
