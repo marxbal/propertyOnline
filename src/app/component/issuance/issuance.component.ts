@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import { paymentDetails } from 'src/app/objects/paymentDetails';
 import { Utility } from 'src/app/utils/utility';
 import { emailData } from 'src/app/objects/emailData';
+import { LovService } from 'src/app/services/lov.service';
 
 const ELEMENT_DATA: table[] = [
   { title: 'Premium', value: 130 },
@@ -34,7 +35,8 @@ export class IssuanceComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private issuanceService: IssuanceService
+    private issuanceService: IssuanceService,
+    private lov: LovService
   ) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
@@ -51,6 +53,7 @@ export class IssuanceComponent implements OnInit {
 
   paymentDetails: table[] = [];
   coverages: table[] = ELEMENT_DATA;
+  coverageList: any[] = [];
   referenceNumber: string = 'xxx-xxx-xxx';
   emailData: emailData;
 
@@ -201,40 +204,44 @@ export class IssuanceComponent implements OnInit {
 
       this.issuanceService.upload(fd).then(
         (uploadResult: ReturnDTO) => {
-        this.issuanceService.issueQuote(requestData).then(
-          (result: ReturnDTO) => {
-          if (result.status) {
-            const pDetails = result.obj as paymentDetails;
-            this.referenceNumber = pDetails.policyNumber;
+        this.lov.getCoverages(requestData.product).then((res)=> {
+          this.coverageList = res;
 
-            this.emailData = {
-              contactNumber: requestData.mobileNumber,
-              email: requestData.emailAddress,
-              policyNumber: pDetails.policyNumber,
-              clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName,
-              productCode: requestData.product
-            }
-
-            this.paymentDetails = [];
-            Object.keys(pDetails).forEach((key: string) => {
-              if (("policyNumber" != key) && ("receipt" != key)) {
-                const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj[key]};
-                this.paymentDetails.push(obj);
+          this.issuanceService.issueQuote(requestData).then(
+            (result: ReturnDTO) => {
+            if (result.status) {
+              const pDetails = result.obj as paymentDetails;
+              this.referenceNumber = pDetails.policyNumber;
+  
+              this.emailData = {
+                contactNumber: requestData.mobileNumber,
+                email: requestData.emailAddress,
+                policyNumber: pDetails.policyNumber,
+                clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName,
+                productCode: requestData.product
               }
-            });
-
-            _this.stepper?.next();
-            // const coverages = result.obj["coverages"];
-            // coverages.forEach((details: any) => {
-            //   this.coverages.push(new table(details.name, details.value))
-            // });
-          } else {
-            Swal.fire({
-              icon: 'error',
-              title: "System Error",
-              text: result.message,
-            });
-          }
+  
+              this.paymentDetails = [];
+              Object.keys(pDetails).forEach((key: string) => {
+                if (("policyNumber" != key) && ("receipt" != key)) {
+                  const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj[key]};
+                  this.paymentDetails.push(obj);
+                }
+              });
+  
+              _this.stepper?.next();
+              // const coverages = result.obj["coverages"];
+              // coverages.forEach((details: any) => {
+              //   this.coverages.push(new table(details.name, details.value))
+              // });
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: "System Error",
+                text: result.message,
+              });
+            }
+          });
         });
       });     
     }
