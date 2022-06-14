@@ -53,7 +53,7 @@ export class LovService {
   // }
 
   async getCoverages(productCode: number) {
-    const dto = new LOV('A1002150', '12', 'COD_CIA~1|cod_ramo~200|fec_velidez~10152014|cod_modalidad~' + productCode);
+    const dto = new LOV('A1002150', '12', 'COD_CIA~1|cod_ramo~200|fec_validez~10152014|cod_modalidad~' + productCode);
     return await this.getLOV(dto).then(lovs => lovs as any[]);
   }
 
