@@ -48,7 +48,7 @@ export class IssuanceComponent implements OnInit {
     window.scrollTo(0, 0);
 
     this.propertyFG = this.fb.group({
-      subLine: ['', Validators.required],
+      subLine: ['', null],
       effectivityDate: ['', Validators.required],
       expirationDate: ['', Validators.required],
       firstName: ['', Validators.required],
