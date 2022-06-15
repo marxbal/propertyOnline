@@ -33,7 +33,8 @@
 
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Sum Insured</th>
-            <td mat-cell *matCellDef="let element">{{ element.value | currency: 'Php ' }}</td>
+            <td mat-cell *matCellDef="let element">
+              {{ (element.value == 'Actual Cost' || element.value == '') ? element.value : element.value | currency: 'Php ' }}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
