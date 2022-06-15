@@ -208,15 +208,17 @@ export class IssuanceComponent implements OnInit {
               this.paymentDetails = [];
               Object.keys(pDetails).forEach((key: string) => {
                 if (("policyNumber" != key) && ("receipt" != key)) {
-                  const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj[key]};
+                  const obj = {title: Utility.getPaymentDetailsTitle(key), value: result.obj['paymentDetails'][key]};
                   this.paymentDetails.push(obj);
                 }
               });
 
               const coverages = result.obj["coverageList"];
               coverages.forEach((details: any) => {
-                this.coverages.push(new table(details.title, details.value))
+                const obj = {title: details.title, value: details.value};
+                this.coverages.push(obj);
               });
+              
               _this.stepper?.next();
               
             } else {
