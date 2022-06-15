@@ -214,11 +214,12 @@ export class IssuanceComponent implements OnInit {
               });
 
               const coverages = result.obj["coverageList"];
+              this.coverages = [];
               coverages.forEach((details: any) => {
                 const obj = {title: details.title, value: details.value};
                 this.coverages.push(obj);
               });
-              
+
               _this.stepper?.next();
               
             } else {

@@ -15,8 +15,7 @@ import Swal from 'sweetalert2';
 export class CoverageComponent implements OnInit {
   constructor(
     private issuanceService: IssuanceService,
-    private router: Router,
-    private lov: LovService) {}
+    private router: Router) {}
 
   displayedColumns: string[] = ['title', 'value'];
   showSubmitBtn: boolean = true;
@@ -25,7 +24,6 @@ export class CoverageComponent implements OnInit {
   @Input() paymentDetails: table[] = [];
   @Input() coverages: table[] = [];
   @Input() referenceNumber: string = 'XXX-XXX-XXX';
-  @Input() productCode: string = '20001';
   @Input() emailData: emailData = new emailData();
 
   ngOnInit(): void {}
