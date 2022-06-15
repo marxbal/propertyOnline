@@ -213,7 +213,7 @@ export class IssuanceComponent implements OnInit {
                 }
               });
 
-              const coverages = result.obj["coverages"];
+              const coverages = result.obj["coverageList"];
               coverages.forEach((details: any) => {
                 this.coverages.push(new table(details.title, details.value))
               });
