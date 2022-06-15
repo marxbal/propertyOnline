@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { LOV } from '../objects/lov';
-// import { OptionList } from '../objects/option.list';
 import { Property } from '../objects/property';
 import { Utility } from '../utils/utility';
 import { AppService } from './app.service';
@@ -24,37 +23,6 @@ export class LovService {
         .then((objArr) => objArr as any[]),
       param
     );
-  }
-
-  // async getOptionList(dto: OptionList): Promise<any[]> {
-  //   return this.app
-  //     .post(dto, '/getOptionList')
-  //     .then((objArr) => objArr as any[]);
-  // }
-
-  // async getIntOptionList(dto: OptionList, param: string): Promise<any[]> {
-  //   return Utility.parseIntArray(
-  //     await this.app
-  //       .post(dto, '/getOptionList')
-  //       .then((objArr) => objArr as any[]),
-  //     param
-  //   );
-  // }
-
-  // async getBusinessLine() {
-  //   const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');
-  //   return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
-  // }
-
-  // TODO
-  // async getClientCategory() {
-  //   const dto = new LOV('A1001800', '92', 'cod_cia~1|cod_sector~2');
-  //   return await this.getIntLOV(dto, "COD_RAMO").then(lovs => lovs as any[]);
-  // }
-
-  async getCoverages(productCode: number) {
-    const dto = new LOV('A1002150', '12', 'COD_CIA~1|cod_ramo~200|fec_validez~10152014|cod_modalidad~' + productCode);
-    return await this.getLOV(dto).then(lovs => lovs as any[]);
   }
 
   async getDocumentID() {

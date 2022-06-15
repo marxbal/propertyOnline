@@ -13,19 +13,6 @@ import { Utility } from 'src/app/utils/utility';
 import { emailData } from 'src/app/objects/emailData';
 import { LovService } from 'src/app/services/lov.service';
 
-const ELEMENT_DATA: table[] = [
-  { title: 'Premium', value: 130 },
-  { title: 'Management Fee', value: 2300.3 },
-  { title: 'Value Added Tax', value: 400 },
-  { title: 'Management Fee VAT', value: 100 },
-  { title: 'Local Government Tax', value: 100 },
-  { title: 'Fire Service Tax', value: 1000 },
-  { title: 'Interest', value: 500 },
-  { title: 'Sub Total', value: 5400.3 },
-  { title: 'Digital Discount', value: 1000 },
-  { title: 'Total', value: 4400.3 },
-];
-
 @Component({
   selector: 'app-issuance',
   templateUrl: './issuance.component.html',
@@ -52,8 +39,8 @@ export class IssuanceComponent implements OnInit {
   selectedFile: any = null;
 
   paymentDetails: table[] = [];
-  coverages: table[] = ELEMENT_DATA;
-  coverageList: any[] = [];
+  coverages: table[] = [];
+  // coverageList: any[] = [];
   referenceNumber: string = 'xxx-xxx-xxx';
   emailData: emailData;
 
@@ -204,13 +191,10 @@ export class IssuanceComponent implements OnInit {
 
       this.issuanceService.upload(fd).then(
         (uploadResult: ReturnDTO) => {
-        this.lov.getCoverages(requestData.product).then((res)=> {
-          this.coverageList = res;
-
           this.issuanceService.issueQuote(requestData).then(
             (result: ReturnDTO) => {
             if (result.status) {
-              const pDetails = result.obj as paymentDetails;
+              const pDetails = result.obj['paymentDetails'] as paymentDetails;
               this.referenceNumber = pDetails.policyNumber;
   
               this.emailData = {
@@ -228,12 +212,13 @@ export class IssuanceComponent implements OnInit {
                   this.paymentDetails.push(obj);
                 }
               });
-  
+
+              const coverages = result.obj["coverages"];
+              coverages.forEach((details: any) => {
+                this.coverages.push(new table(details.title, details.value))
+              });
               _this.stepper?.next();
-              // const coverages = result.obj["coverages"];
-              // coverages.forEach((details: any) => {
-              //   this.coverages.push(new table(details.name, details.value))
-              // });
+              
             } else {
               Swal.fire({
                 icon: 'error',
@@ -242,7 +227,6 @@ export class IssuanceComponent implements OnInit {
               });
             }
           });
-        });
       });     
     }
   }
