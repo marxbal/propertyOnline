@@ -28,9 +28,7 @@ export class CoverageComponent implements OnInit {
   @Input() productCode: string = '20001';
   @Input() emailData: emailData = new emailData();
 
-  ngOnInit(): void {
-    this.getCoverage(this.emailData.productCode);
-  }
+  ngOnInit(): void {}
 
   submit() {
     const policyNumber = this.referenceNumber;
@@ -55,12 +53,6 @@ export class CoverageComponent implements OnInit {
         });
       }
     }); 
-  }
-
-  getCoverage(productCode: number){
-    this.lov.getCoverages(productCode).then((res)=> {
-      this.coverageList = res;
-    });
   }
 
   goBackToHomepage() {
