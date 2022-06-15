@@ -4,7 +4,6 @@ import { emailData } from 'src/app/objects/emailData';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import { table } from 'src/app/objects/table';
 import { IssuanceService } from 'src/app/services/issuance.service';
-import { LovService } from 'src/app/services/lov.service';
 import Swal from 'sweetalert2';
 
 @Component({
