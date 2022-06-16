@@ -22,9 +22,9 @@ export class IssuanceService {
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 
-  async informUW(emailData: emailData): Promise<ReturnDTO> {
+  async informUnderwriter(emailData: emailData): Promise<ReturnDTO> {
     return this.app
-      .post(emailData, 'sendEmail')
+      .post(emailData, 'informUnderwriter')
       .then((ReturnDTO) => ReturnDTO as ReturnDTO);
   }
 

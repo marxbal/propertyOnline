@@ -59,7 +59,7 @@ export class ReminderComponent implements OnInit {
     alert(message);
   }
 
-  informUW() {
+  informUnderwriter() {
     Swal.fire({
       title: 'Submit your email address',
       input: 'text',
@@ -80,7 +80,7 @@ export class ReminderComponent implements OnInit {
           policyNumber: ''
         };
         data.email = emailAddress;
-        await this.issuanceService.informUW(data).then((res)=> {
+        await this.issuanceService.informUnderwriter(data).then((res)=> {
           result = res;
         });
         return result
