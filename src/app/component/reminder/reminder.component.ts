@@ -88,11 +88,21 @@ export class ReminderComponent implements OnInit {
       allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(result);
-        // Swal.fire({
-        //   title: `${result.value.login}'s avatar`,
-        //   imageUrl: result.value.avatar_url
-        // })
+        try {
+          if (result.value?.status) {
+            Swal.fire({
+              title: result.value?.message,
+              text: 'We will contact you',
+              icon: 'success',
+            });
+          }
+        } catch {
+          Swal.fire({
+            title: 'Ooops! System Error.',
+            text: 'Unable to submit your request.',
+            icon: 'error',
+          });
+        }
       }
     })
   }
