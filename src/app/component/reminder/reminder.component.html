@@ -101,7 +101,7 @@
             type="checkbox"
             value=""
             id="confirmCheckbox"
-            (change)="disableNextBtn = !disableNextBtn"
+            (change)="disableBtn = !disableBtn"
           />
           <label class="form-check-label" for="confirmCheckbox">
             I hereby confirm that I have read and understood the information
@@ -110,12 +110,24 @@
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end btn-grp">
           <input
             type="button"
             class="btn btn-primary"
-            value="Next"
+            value="Residential"
             (click)="goToIssuance()"
-            [disabled]="disableNextBtn"
+            [disabled]="disableBtn"
+          />
+
+          <input
+            type="button"
+            class="btn btn-primary"
+            value="Non-Residential"
+            (click)="informUW()"
+            [disabled]="disableBtn"
           />
         </div>
       </div>
