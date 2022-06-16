@@ -71,6 +71,7 @@ export class ReminderComponent implements OnInit {
       confirmButtonText: 'Submit',
       showLoaderOnConfirm: true,
       preConfirm: async (emailAddress: string) => {
+        let result: any = {};
         const data: emailData = {
           email: emailAddress,
           contactNumber: '',
@@ -80,8 +81,9 @@ export class ReminderComponent implements OnInit {
         };
         data.email = emailAddress;
         await this.issuanceService.informUW(data).then((res)=> {
-          return res.status
+          result = res;
         });
+        return result
       },
       allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
