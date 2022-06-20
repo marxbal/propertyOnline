@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { emailData } from 'src/app/objects/emailData';
-import { ReturnDTO } from 'src/app/objects/return.dto';
 import { IssuanceService } from 'src/app/services/issuance.service';
 import Swal from 'sweetalert2';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-reminder',
@@ -61,29 +61,39 @@ export class ReminderComponent implements OnInit {
 
   informUnderwriter() {
     Swal.fire({
-      title: 'Submit your email address',
+      title: 'Submit your Contact Information',
       input: 'text',
+      inputPlaceholder: 'Email or Contact Number',
       inputAttributes: {
         autocapitalize: 'off'
       },
-      text: 'We will contact you with your concern with NON-RESIDENTIAL Policy Insurance',
+      text: 'Thank you for your interest in Property Insurance for your commercial property. ' +
+            'One of our representatives will contact you. Please enter your email or mobile number below.',
       showCancelButton: true,
       confirmButtonText: 'Submit',
       showLoaderOnConfirm: true,
-      preConfirm: async (emailAddress: string) => {
-        let result: any = {};
-        const data: emailData = {
-          email: emailAddress,
-          contactNumber: '',
-          clientName: '',
-          productCode: 0,
-          policyNumber: ''
-        };
-        data.email = emailAddress;
-        await this.issuanceService.informUnderwriter(data).then((res)=> {
-          result = res;
-        });
-        return result
+      preConfirm: async (inputValue: string) => {
+        if (!_.isEmpty(inputValue)) {
+          let result: any = {};
+          const data: emailData = {
+            email: inputValue,
+            contactNumber: '',
+            clientName: '',
+            productCode: 0,
+            policyNumber: ''
+          };
+          data.email = inputValue;
+          await this.issuanceService.informUnderwriter(data).then((res)=> {
+            result = res;
+          });
+          return result
+        } else {
+          Swal.fire({
+            title: 'Input Required',
+            text: 'Please submit your contact information.',
+            icon: 'error',
+          });
+        }
       },
       allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
@@ -92,7 +102,7 @@ export class ReminderComponent implements OnInit {
           if (result.value?.status) {
             Swal.fire({
               title: result.value?.message,
-              text: 'We will contact you',
+              text: "Thank you! We'll get in touch with you.",
               icon: 'success',
             });
           }
