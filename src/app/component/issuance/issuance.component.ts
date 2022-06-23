@@ -62,11 +62,11 @@ export class IssuanceComponent implements OnInit {
     });
 
     this.locationFG = this.fb.group({
-      buildingNumber: ['', Validators.required],
-      village: ['', Validators.required],
-      buildingName: ['', Validators.required],
-      streetName: ['', Validators.required],
-      barangay: ['', Validators.required],
+      buildingNumber: ['', null],
+      village: ['', null],
+      buildingName: ['', null],
+      streetName: ['', null],
+      barangay: ['', null],
       region: ['', Validators.required],
       province: ['', Validators.required],
       city: ['', Validators.required],
@@ -202,7 +202,8 @@ export class IssuanceComponent implements OnInit {
                 email: requestData.emailAddress,
                 policyNumber: pDetails.policyNumber,
                 clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName,
-                productCode: requestData.product
+                lossHistory: requestData.lossHistory,
+                previousInsurer: requestData.previousInsurer
               }
   
               this.paymentDetails = [];

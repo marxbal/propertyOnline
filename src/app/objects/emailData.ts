@@ -3,7 +3,8 @@ export class emailData {
   email: string;
   contactNumber: string;
   clientName: string;
-  productCode: number;
+  lossHistory: string;
+  previousInsurer: string;
   
   constructor() {}
 }

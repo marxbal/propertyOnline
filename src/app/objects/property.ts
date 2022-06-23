@@ -58,7 +58,7 @@ export class Property {
   buildingCapital: string;
   contentValue: string;
   yearBuilt: string;
-  numberOfFloors: string;
+  numberOfFloors: number;
   
   garage: number;
   kitchen: number;
