@@ -79,8 +79,9 @@ export class ReminderComponent implements OnInit {
             email: inputValue,
             contactNumber: '',
             clientName: '',
-            productCode: 0,
-            policyNumber: ''
+            policyNumber: '',
+            lossHistory: '',
+            previousInsurer: ''
           };
           data.email = inputValue;
           await this.issuanceService.informDigitalSales(data).then((res)=> {
