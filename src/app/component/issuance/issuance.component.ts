@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 import { paymentDetails } from 'src/app/objects/paymentDetails';
 import { Utility } from 'src/app/utils/utility';
 import { emailData } from 'src/app/objects/emailData';
-import { LovService } from 'src/app/services/lov.service';
 
 @Component({
   selector: 'app-issuance',
@@ -22,9 +21,7 @@ export class IssuanceComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private issuanceService: IssuanceService,
-    private lov: LovService
-  ) {}
+    private issuanceService: IssuanceService) {}
 
   @ViewChild('stepper') private stepper?: MatStepper;
 
@@ -40,7 +37,6 @@ export class IssuanceComponent implements OnInit {
 
   paymentDetails: table[] = [];
   coverages: table[] = [];
-  // coverageList: any[] = [];
   referenceNumber: string = 'xxx-xxx-xxx';
   emailData: emailData;
 
