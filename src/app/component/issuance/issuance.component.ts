@@ -66,7 +66,7 @@ export class IssuanceComponent implements OnInit {
       village: ['', null],
       buildingName: ['', null],
       streetName: ['', null],
-      barangay: ['', null],
+      barangay: ['', Validators.required],
       region: ['', Validators.required],
       province: ['', Validators.required],
       city: ['', Validators.required],
@@ -152,13 +152,9 @@ export class IssuanceComponent implements OnInit {
     this.property.branchCode = 9201;
     this.property.gender = 1;
 
+    const location = _.trim(this.property.buildingNumber + ' ' + this.property.buildingName);
     if (_.isEmpty(this.property.address1)) {
-      this.property.address1 =
-      this.property.buildingNumber +
-      ' ' +
-      this.property.village +
-      ', ' +
-      this.property.buildingName;
+      this.property.address1 = _.isEmpty(location) ? this.property.barangay : location + ', ' + this.property.barangay;
     }
   }
 
