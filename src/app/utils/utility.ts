@@ -88,6 +88,9 @@ export class Utility {
       case 'lgt':
         title = 'Local Government Tax';
         break;
+      case 'fst':
+        title = 'FST';
+        break;
       case 'others':
         title = 'Others';
         break;

@@ -4,6 +4,7 @@ export class paymentDetails {
   docStamp: number;
   eVat: number;
   lgt: number;
+  fst: number;
   others: number;
   grossPremium: number;
   receipt: number;
