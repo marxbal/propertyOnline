@@ -14,7 +14,7 @@
 
           <ng-container matColumnDef="value">
             <th mat-header-cell *matHeaderCellDef>Price</th>
-            <td mat-cell *matCellDef="let element">{{ element.value | currency: 'Php ' }}</td>
+            <td mat-cell *matCellDef="let element" [ngClass]="element.title == 'Gross Premium' ? 'grossPremium' : ''">{{ element.value | currency: 'Php ' }}</td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -13,3 +13,8 @@ tr:nth-child(even) {
 .mat-column-value {
   text-align: right;
 }
+
+.grossPremium {
+  font-size: 25px;
+  font-weight: 700;
+}
