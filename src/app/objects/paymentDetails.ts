@@ -5,7 +5,6 @@ export class paymentDetails {
   eVat: number;
   lgt: number;
   fst: number;
-  others: number;
   grossPremium: number;
   receipt: number;
 

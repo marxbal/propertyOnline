@@ -91,9 +91,6 @@ export class Utility {
       case 'fst':
         title = 'FST';
         break;
-      case 'others':
-        title = 'Others';
-        break;
       case 'grossPremium':
         title = 'Gross Premium';
         break;
