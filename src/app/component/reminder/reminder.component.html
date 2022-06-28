@@ -88,47 +88,57 @@
         <br />
         <br />
 
-        <div class="alert alert-info">
+        <!-- <div class="alert alert-info">
           Cancellation and Refund of policies must be notified to the company at
           least three(3) working days prior to policy inception/effectivity. No
           cancellation shall be accepted once policy has started
           coverage/incepted and no taxes shall be refunded.
+        </div> -->
+        <div class="row">
+          <div class="col-md-7">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="confirmCheckbox"
+                (change)="disableBtn = !disableBtn"
+              />
+              <label class="form-check-label" for="confirmCheckbox">
+                I hereby confirm that I have read and understood the information
+                note concerning the conditions of application.
+              </label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end btn-grp">
+              <input
+                type="button"
+                class="btn btn-primary"
+                value="Residential"
+                (click)="goToIssuance()"
+                [disabled]="disableBtn"
+              />
+    
+              <input
+                type="button"
+                class="btn btn-primary"
+                value="Non-Residential"
+                (click)="informDigitalSales()"
+                [disabled]="disableBtn"
+              />
+            </div>
+          </div>
         </div>
+        
+ 
 
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="confirmCheckbox"
-            (change)="disableBtn = !disableBtn"
-          />
-          <label class="form-check-label" for="confirmCheckbox">
-            I hereby confirm that I have read and understood the information
-            note concerning the conditions of application.
-          </label>
-        </div>
+       
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          
-        </div>
-
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end btn-grp">
-          <input
-            type="button"
-            class="btn btn-primary"
-            value="Residential"
-            (click)="goToIssuance()"
-            [disabled]="disableBtn"
-          />
-
-          <input
-            type="button"
-            class="btn btn-primary"
-            value="Non-Residential"
-            (click)="informDigitalSales()"
-            [disabled]="disableBtn"
-          />
+        <br />
+        
+        <div class="alert alert-info" *ngIf="disableBtn">
+          <strong>Note:</strong> Please confirm to enable buttons and proceed to the application
         </div>
       </div>
     </div>
