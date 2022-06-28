@@ -15,6 +15,11 @@
   background: #d81e05;
 }
 
+#footer h1.upsize {
+  font-size: 35px;
+  font-weight: bold;
+}
+
 #footer h3 {
   font-weight: 700;
   color: #fff;
@@ -24,13 +29,9 @@
   color: #fefefe;
 }
 
-#footer .ft-pads {
+#footer .ft-info {
   padding: 0 25px;
-}
-
-#footer ul.ft-socialmedia {
-  list-style: none;
-  padding-left: 0;
+  text-align: center;
 }
 
 #footer .ft-links ul {
@@ -39,24 +40,23 @@
 }
 
 #footer .ft-links ul li {
+  text-align: center;
   padding: 15px 0;
   text-transform: uppercase;
+  background-color: #d81e05;
+  background: #ff6269;
+  border-radius: 23px;
+  margin: 10px 25px;
+}
+
+#footer .ft-links ul li:hover {
+  background-color: #1f1f1f;
+  color: #fff;
+  font-weight: 800;
 }
 
 #footer .ft-links ul li a {
-  font-weight: bold;
   text-decoration: none;
-}
-
-#footer .ft-links ul li a:hover {
-  color: #2e2e2e;
-  font-weight: bolder;
-}
-
-#footer ul.ft-socialmedia li {
-  display: inline;
-  margin: 0 10px;
-  font-size: 22px;
 }
 
 #footer .col-sm-2 {
@@ -69,10 +69,21 @@
   text-align: center;
 }
 
-#footer .ft-company {
+#footer .ft-social-media {
   text-align: center;
   background-color: #2e2e2e;
   padding-top: 15px;
+}
+
+#footer ul.ft-socialmedia {
+  list-style: none;
+  padding-left: 0;
+}
+
+#footer ul.ft-socialmedia li {
+  display: inline;
+  margin: 0 10px;
+  font-size: 22px;
 }
 
 #footer .ft-version {
@@ -84,10 +95,4 @@
   margin: 8px 0;
   font-size: 12px;
   color: #bdbdbd;
-}
-
-@media only screen and (max-width: 767px) {
-  #footer .col-sm-10 {
-    text-align: center;
-  }
 }
