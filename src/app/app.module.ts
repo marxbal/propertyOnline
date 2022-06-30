@@ -32,6 +32,8 @@ import { CoverageComponent } from './component/issuance/coverage/coverage.compon
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { HttpClientModule } from '@angular/common/http';
+import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
+import { CustomerCharterComponent } from './component/customer-charter/customer-charter.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     BoundaryRelatedStructureComponent,
     ProductsComponent,
     CoverageComponent,
+    PrivacyPolicyComponent,
+    CustomerCharterComponent,
   ],
   imports: [
     BrowserModule,
