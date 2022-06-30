@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { LovService } from 'src/app/services/lov.service';
 import * as m from 'moment';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-property',
@@ -21,6 +22,21 @@ export class PropertyComponent implements OnInit {
   documentIdList: any[] = [];
   uploadFile: any = null;
 
+  allowedIDList: string[] = [
+    'PAS',
+    'DRI',
+    'PID',
+    'SSS',
+    'UMI',
+    'POS',
+    'TIN',
+    'VOT',
+    'PRC',
+    'SCC',
+    'NIC',
+    'PWD',
+  ];
+
   ngOnInit(): void {
     this.getDocumentID();
   }
@@ -31,8 +47,13 @@ export class PropertyComponent implements OnInit {
   }
 
   getDocumentID() {
+    this.documentIdList = [];
     this.lov.getDocumentID().then((list) => {
-      this.documentIdList = list;
+      list.forEach((l) => {
+        if (_.includes(this.allowedIDList, l.TIP_DOCUM)) {
+          this.documentIdList.push(l);
+        }
+      });
     });
   }
 

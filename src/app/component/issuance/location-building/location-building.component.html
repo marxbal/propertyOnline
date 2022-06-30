@@ -100,8 +100,20 @@
           <mat-form-field appearance="fill">
             <mat-label>Mailing Address</mat-label>
             <input matInput formControlName="address1" 
-            oninput="this.value = this.value.toUpperCase()"
-            required maxlength="40"/>
+              oninput="this.value = this.value.toUpperCase()"
+              required maxlength="40"/>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Mailing Address (Continuation)</mat-label>
+            <input matInput formControlName="address2" 
+              oninput="this.value = this.value.toUpperCase()"
+              maxlength="40"/>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Mailing Address (Continuation)</mat-label>
+            <input matInput formControlName="address3" 
+              oninput="this.value = this.value.toUpperCase()"
+              maxlength="40"/>
           </mat-form-field>
         </div>
       </div>
@@ -133,6 +145,7 @@
               matInput
               type="number"
               formControlName="contentValue"
+              min="1"
               matTooltip="Indicate total amount of furniture, fixtures, and fittings inside the building in Peso value"
             />
             <span matPrefix>PHP&nbsp;</span>

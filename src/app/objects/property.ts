@@ -6,6 +6,8 @@ export class Property {
   birthday: string;
   gender: number;
   address1: string;
+  address2: string;
+  address3: string;
 
   // clientCategory: string;
   clientName: string;
