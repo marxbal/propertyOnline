@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class PrivacyPolicyComponent implements OnInit {
   constructor() {}
 
-  prefixLink: string = '/privacy-policy/#';
+  prefixLink: string = environment.homePage + 'privacy-policy/#';
 
   ngOnInit(): void {}
 }

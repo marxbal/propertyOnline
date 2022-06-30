@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-customer-charter',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerCharterComponent implements OnInit {
   constructor() {}
 
-  prefixLink: string = '/customer-charter/#';
+  prefixLink: string = environment.homePage + 'customer-charter/#';
 
   ngOnInit(): void {}
 }
