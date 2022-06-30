@@ -53,6 +53,7 @@
   background-color: #1f1f1f;
   color: #fff;
   font-weight: 800;
+  cursor: pointer;
 }
 
 #footer .ft-links ul li a {

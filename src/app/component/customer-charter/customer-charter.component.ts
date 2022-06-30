@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Utility } from 'src/app/utils/utility';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,7 +10,9 @@ import { environment } from 'src/environments/environment';
 export class CustomerCharterComponent implements OnInit {
   constructor() {}
 
-  prefixLink: string = environment.homePage + 'customer-charter/#';
-
   ngOnInit(): void {}
+
+  scroll(id: string) {
+    Utility.scroll(id);
+  }
 }

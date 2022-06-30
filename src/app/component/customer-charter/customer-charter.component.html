@@ -159,33 +159,27 @@
       <div class="col-md-4 d-sm-none d-md-block">
         <ul class="sidenav">
           <li>
-            <a pageScroll href="{{ prefixLink }}customerCharter"
-              >Customer Charter</a
+            <label (click)="scroll('customerCharter')">Customer Charter</label>
+          </li>
+          <li class="indent">
+            <label (click)="scroll('section1')"
+              >We place YOUR needs first</label
             >
           </li>
           <li class="indent">
-            <a pageScroll href="{{ prefixLink }}section1"
-              >We place YOUR needs first</a
+            <label (click)="scroll('section2')"
+              >We commit to superior SERVICE</label
             >
           </li>
           <li class="indent">
-            <a pageScroll href="{{ prefixLink }}section2"
-              >We commit to superior SERVICE</a
-            >
+            <label (click)="scroll('section3')">We are FAIR and HONEST</label>
           </li>
           <li class="indent">
-            <a pageScroll href="{{ prefixLink }}section3"
-              >We are FAIR and HONEST</a
-            >
-          </li>
-          <li class="indent">
-            <a pageScroll href="{{ prefixLink }}section4"
-              >We value YOUR TRUST</a
-            >
+            <label (click)="scroll('section4')">We value YOUR TRUST</label>
           </li>
           <li>
-            <a pageScroll href="{{ prefixLink }}compliance"
-              >Compliance With Guidelines</a
+            <label (click)="scroll('compliance')"
+              >Compliance With Guidelines</label
             >
           </li>
         </ul>

@@ -18,13 +18,13 @@ h1 {
   font-size: 18px;
 }
 
-.sidenav li a {
+.sidenav li label {
   text-decoration: none;
   color: black;
   cursor: pointer;
 }
 
-.sidenav li a:hover {
+.sidenav li label:hover {
   font-weight: 700;
 }
 

@@ -1,6 +1,5 @@
 import {
-  AbstractControl,
-  FormGroup
+  AbstractControl
 } from '@angular/forms';
 
 export class Utility {

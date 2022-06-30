@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Utility } from 'src/app/utils/utility';
 
 @Component({
   selector: 'app-banner',
@@ -9,4 +10,8 @@ export class BannerComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  scrollToReminder() {
+    Utility.scroll('reminder');
+  }
 }
