@@ -13,23 +13,20 @@ const routes: Routes = [
   },
   {
     path: 'issuance',
-    component: IssuanceComponent,
-    // canActivate: [AuthGuard]
+    component: IssuanceComponent
   },
   {
     path: 'privacy-policy',
-    component: PrivacyPolicyComponent,
-    // canActivate: [AuthGuard]
+    component: PrivacyPolicyComponent
   },
   {
     path: 'customer-charter',
-    component: CustomerCharterComponent,
-    // canActivate: [AuthGuard]
+    component: CustomerCharterComponent
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
