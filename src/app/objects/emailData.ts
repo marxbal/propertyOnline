@@ -3,8 +3,18 @@ export class emailData {
   email: string;
   contactNumber: string;
   clientName: string;
-  lossHistory: string;
-  previousInsurer: string;
-  
+
+  buildingNumber?: string;
+  village?: string;
+  buildingName?: string;
+  streetName?: string;
+  barangay?: string;
+  region?: string;
+  province?: string;
+  city?: string;
+
+  lossHistory?: string;
+  previousInsurer?: string;
+
   constructor() {}
 }

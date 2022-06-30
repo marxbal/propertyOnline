@@ -196,6 +196,16 @@ export class IssuanceComponent implements OnInit {
                 email: requestData.emailAddress,
                 policyNumber: pDetails.policyNumber,
                 clientName: requestData.firstName + (_.isEmpty(requestData.middleName) ? " " : " " + requestData.middleName + " ") + requestData.lastName,
+                
+                buildingNumber: requestData.buildingNumber,
+                village: requestData.village,
+                buildingName: requestData.buildingName,
+                streetName: requestData.streetName,
+                barangay: requestData.barangay,
+                region: requestData.region,
+                province: requestData.province,
+                city: requestData.city,
+                
                 lossHistory: requestData.lossHistory,
                 previousInsurer: requestData.previousInsurer
               }
