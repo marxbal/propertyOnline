@@ -64,10 +64,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Garage</mat-label>
-            <input type="number"
+            <input type="text"
               matInput
               formControlName="garage"
-              min="1"/>
+              #garage
+              (blur)="addCommas(garage)"/>
             <span matPrefix>PHP&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -75,10 +76,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Kitchen</mat-label>
-            <input type="number"
+            <input type="text"
               matInput
               formControlName="kitchen"
-              min="1"/>
+              #kitchen
+              (blur)="addCommas(kitchen)"/>
             <span matPrefix>PHP&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -86,10 +88,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Gazebo</mat-label>
-            <input type="number"
+            <input type="text"
               matInput
               formControlName="gazebo"
-              min="1"/>
+              #gazebo
+              (blur)="addCommas(gazebo)"/>
             <span matPrefix>PHP&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -97,10 +100,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Swimming Pool</mat-label>
-            <input type="number"
+            <input type="text"
               matInput
               formControlName="swimmingPool"
-              min="1"
+              #swimmingPool
+              (blur)="addCommas(swimmingPool)"
             />
             <span matPrefix>PHP&nbsp;</span>
             <span matSuffix>.00</span>
@@ -109,10 +113,11 @@
         <div class="col-md-3">
           <mat-form-field appearance="fill" floatLabel="always">
             <mat-label>Fence</mat-label>
-            <input type="number"
+            <input type="text"
               matInput
               formControlName="fence"
-              min="1"/>
+              #fence
+              (blur)="addCommas(fence)"/>
             <span matPrefix>PHP&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>

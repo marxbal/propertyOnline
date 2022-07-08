@@ -1,9 +1,8 @@
-import {
-  AbstractControl
-} from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
+import { formatNumber } from '@angular/common';
+import * as _ from 'lodash';
 
 export class Utility {
-
   static updateValidator(input: AbstractControl, validator: any) {
     input.setValidators(validator);
     input.updateValueAndValidity();
@@ -27,19 +26,19 @@ export class Utility {
       positionClass: 'toast-top-full-width',
       timeOut: 30000,
       tapToDismiss: false,
-      extendedTimeOut: 5000
-    }
+      extendedTimeOut: 5000,
+    };
 
     switch (type) {
-      case "S": {
+      case 'S': {
         toastr.success(message, title, settings);
         break;
       }
-      case "W": {
+      case 'W': {
         toastr.warning(message, title, settings);
         break;
       }
-      case "E": {
+      case 'E': {
         toastr.error(message, title, settings);
         break;
       }
@@ -57,7 +56,7 @@ export class Utility {
       var el = document.getElementById(id);
       if (!this.isUndefined(el)) {
         el?.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     }, 500);
@@ -66,7 +65,7 @@ export class Utility {
   //converts string value to integer
   static parseIntArray(arr: any[], param: string) {
     if (arr) {
-      arr.forEach(a => {
+      arr.forEach((a) => {
         a[param] = parseInt(a[param]);
       });
       return arr;
@@ -104,23 +103,40 @@ export class Utility {
     return title;
   }
 
-  //format date string
-  // static formatDate(d: Date, f ? : string) {
-  //   const format = !this.isUndefined(f) ? f : "MM/DD/YYYY";
-  //   return moment(d).format(format);
-  // }
+  static addCommas(element: HTMLElement, formGroup: FormGroup) {
+    const controlName = element.getAttribute('formControlName') || '';
+    const input = formGroup.get(controlName);
 
-  // static convertStringDate(d: string, f ? : string) {
-  //   const format = !this.isUndefined(f) ? f : "DDMMYYYY";
-  //   return moment(d, format).toDate();
-  // }
+    var value = input?.value.replace(/,/g, '');
 
-  // static convertDatePickerDate(val: String) {
-  //   if (val != null && val != undefined && val !== '') {
-  //     const date = val.toString();
-  //     var d = new Date(date);
-  //     return moment(d).format("MM/DD/YYYY");
-  //   }
-  //   return "";
-  // }
+    if (this.isNumber(value)) {
+      var n = parseInt(value);
+      input?.setValue(n > 0 ? formatNumber(n, 'en-US', '1.0-0') : '');
+    } else {
+      input?.setValue('');
+    }
+  }
+
+  static isNumber(str: string): boolean {
+    if (typeof str !== 'string') {
+      return false;
+    }
+
+    if (str.trim() === '') {
+      return false;
+    }
+
+    return !Number.isNaN(Number(str));
+  }
+
+  static convertToNumber(val: string) {
+    if(!_.isEmpty(val)) {
+      var value = val.replace(/,/g, '');
+      if (this.isNumber(value)) {
+        return parseInt(value)
+      }
+    }
+
+    return 0;
+  }
 }

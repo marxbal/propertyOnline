@@ -128,10 +128,11 @@
             <mat-label>Building Capital</mat-label>
             <input
               matInput
-              type="number"
+              type="text"
               formControlName="buildingCapital"
               required
-              min="1"
+              #buildingCapital
+              (blur)="addCommas(buildingCapital)"
               matTooltip="Indicate total cost of property/structure construction in Peso value"
             />
             <span matPrefix>PHP&nbsp;</span>
@@ -143,9 +144,10 @@
             <mat-label>Content Value</mat-label>
             <input
               matInput
-              type="number"
+              type="text"
               formControlName="contentValue"
-              min="1"
+              #contentValue
+              (blur)="addCommas(contentValue)"
               matTooltip="Indicate total amount of furniture, fixtures, and fittings inside the building in Peso value"
             />
             <span matPrefix>PHP&nbsp;</span>

@@ -141,6 +141,17 @@ export class IssuanceComponent implements OnInit {
     this.property.birthday = bDate;
   }
 
+  convertDataAmount() {
+    this.property.buildingCapital = Utility.convertToNumber(this.property.buildingCapital.toString());
+    this.property.contentValue = Utility.convertToNumber(this.property.contentValue.toString());
+
+    this.property.garage = Utility.convertToNumber(this.property.garage.toString());
+    this.property.kitchen = Utility.convertToNumber(this.property.kitchen.toString());
+    this.property.gazebo = Utility.convertToNumber(this.property.gazebo.toString());
+    this.property.swimmingPool = Utility.convertToNumber(this.property.swimmingPool.toString());
+    this.property.fence = Utility.convertToNumber(this.property.fence.toString());
+  }
+
   defaultParam() {
     this.property.userCode = 'MIV01101';
     this.property.type = 'q';
@@ -166,6 +177,7 @@ export class IssuanceComponent implements OnInit {
 
     this.buildRcDetails();
     this.convertDataDate();
+    this.convertDataAmount();
     this.defaultParam();
 
     return this.property;

@@ -57,8 +57,8 @@ export class Property {
   relatedContentDetails: any[];
   // secondaryPolicyHolderSeparator: string;
 
-  buildingCapital: string;
-  contentValue: string;
+  buildingCapital: number;
+  contentValue: number;
   yearBuilt: string;
   numberOfFloors: number;
   
