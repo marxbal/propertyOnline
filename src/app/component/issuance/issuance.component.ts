@@ -175,9 +175,9 @@ export class IssuanceComponent implements OnInit {
       this.productFG.value
     );
 
-    this.buildRcDetails();
     this.convertDataDate();
     this.convertDataAmount();
+    this.buildRcDetails();
     this.defaultParam();
 
     return this.property;
