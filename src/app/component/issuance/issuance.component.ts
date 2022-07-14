@@ -159,6 +159,7 @@ export class IssuanceComponent implements OnInit {
     this.property.subLine = '200';
     this.property.agentCode = 1101;
     this.property.branchCode = 9201;
+    this.property.policyGroupCode = '122';
     this.property.contractCode = 12200;
     if (this.property.product == 20001) {
       this.property.subContractCode = 90110;
