@@ -159,7 +159,16 @@ export class IssuanceComponent implements OnInit {
     this.property.subLine = '200';
     this.property.agentCode = 1101;
     this.property.branchCode = 9201;
+    this.property.contractCode = 12200;
+    if (this.property.product == 20001) {
+      this.property.subContractCode = 90110;
+    } else if (this.property.product == 20002) {
+      this.property.subContractCode = 90111;
+    } else {
+      this.property.subContractCode = 90112;
+    }
     this.property.gender = 1;
+    this.property.designation = 4;
 
     const location = _.trim(this.property.buildingNumber + ' ' + this.property.buildingName);
     if (_.isEmpty(this.property.address1)) {

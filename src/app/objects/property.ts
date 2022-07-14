@@ -29,6 +29,7 @@ export class Property {
   agentCode: number;
   branchCode: number;
   userCode: string;
+  designation: number;
 
   //p31
   product: number;
