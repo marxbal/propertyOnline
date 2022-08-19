@@ -28,17 +28,5 @@ export class LandingPageComponent implements OnInit {
         headerBg.style.height = pixel;
       }
     }
-
-    // alert(bannerHeight);
-
-    // var bannerSection = document.getElementById('bannerSection');
-    // if (bannerSection != null) {
-    //   bannerSection.style.height = pixel;
-    // }
-
-    // var headerBg = document.getElementById('headerBg');
-    // if (headerBg != null) {
-    //   headerBg.style.height = pixel;
-    // }
   }
 }
