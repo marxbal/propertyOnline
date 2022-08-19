@@ -259,7 +259,7 @@ export class IssuanceComponent implements OnInit {
               Swal.fire({
                 icon: 'error',
                 title: "System Error",
-                text: result.message,
+                html: Utility.generateErrorMessage(result.message),
               });
             }
           });

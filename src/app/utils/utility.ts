@@ -1,6 +1,12 @@
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { formatNumber } from '@angular/common';
 import * as _ from 'lodash';
+import {
+  CONTACT_EMAIL,
+  CONTACT_GLOBE,
+  CONTACT_HOTLINE,
+  CONTACT_SMART,
+} from '../objects/app.constant';
 
 export class Utility {
   static updateValidator(input: AbstractControl, validator: any) {
@@ -130,13 +136,27 @@ export class Utility {
   }
 
   static convertToNumber(val: string) {
-    if(!_.isEmpty(val)) {
+    if (!_.isEmpty(val)) {
       var value = val.replace(/,/g, '');
       if (this.isNumber(value)) {
-        return parseInt(value)
+        return parseInt(value);
       }
     }
 
     return 0;
+  }
+
+  static generateErrorMessage(message?: string) {
+    return (
+      '<p>' +
+      message +
+      '</p>' +
+      '</ br>' +
+      '<p>Please contact us:</p>' +
+      '<p>Hotline: <strong>' + CONTACT_HOTLINE + '</strong></p>' +
+      '<p>Smart: <strong>' + CONTACT_SMART + '</strong></p>' +
+      '<p>Globe: <strong>' + CONTACT_GLOBE + '</strong></p>' +
+      '<p>Email: <strong>' + CONTACT_EMAIL + '</strong></p>'
+    );
   }
 }

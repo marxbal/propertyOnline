@@ -4,6 +4,7 @@ import { emailData } from 'src/app/objects/emailData';
 import { ReturnDTO } from 'src/app/objects/return.dto';
 import { table } from 'src/app/objects/table';
 import { IssuanceService } from 'src/app/services/issuance.service';
+import { Utility } from 'src/app/utils/utility';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -28,7 +29,7 @@ export class CoverageComponent implements OnInit {
   ngOnInit(): void {}
 
   submit() {
-    const policyNumber = this.referenceNumber;
+    // const policyNumber = this.referenceNumber;
     this.issuanceService.sendEmail(this.emailData).then((result: ReturnDTO) => {
       if (result.status) {
         this.showSubmitBtn = false;
@@ -44,9 +45,9 @@ export class CoverageComponent implements OnInit {
         });
       } else {
         Swal.fire({
-          title: 'Ooops! System Error.',
-          text: result.message,
           icon: 'error',
+          title: 'System Error.',
+          html: Utility.generateErrorMessage(result.message),
         });
       }
     }); 

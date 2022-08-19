@@ -90,7 +90,7 @@ export class ReminderComponent implements OnInit {
           Swal.fire({
             title: 'Input Required',
             text: 'Please submit your contact information.',
-            icon: 'error',
+            icon: 'warning',
           });
         }
       },
@@ -107,7 +107,7 @@ export class ReminderComponent implements OnInit {
           }
         } catch {
           Swal.fire({
-            title: 'Ooops! System Error.',
+            title: 'System Error.',
             text: 'Unable to submit your request.',
             icon: 'error',
           });
