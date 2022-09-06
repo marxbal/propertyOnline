@@ -104,29 +104,29 @@ export class IssuanceComponent implements OnInit {
     this.selectedFile = evt;
   }
 
-  buildRcDetails() {
-    var rcDetails = [];
+  buildRsDetails() {
+    var rsDetails = [];
     if (this.property.garage > 0) {
       const obj = { name: 'Garage', value: this.property.garage };
-      rcDetails.push(obj);
+      rsDetails.push(obj);
     }
     if (this.property.kitchen > 0) {
       const obj = { name: 'Kitchen', value: this.property.kitchen };
-      rcDetails.push(obj);
+      rsDetails.push(obj);
     }
     if (this.property.gazebo > 0) {
       const obj = { name: 'Gazebo', value: this.property.gazebo };
-      rcDetails.push(obj);
+      rsDetails.push(obj);
     }
     if (this.property.swimmingPool > 0) {
       const obj = { name: 'Swimming Pool', value: this.property.swimmingPool };
-      rcDetails.push(obj);
+      rsDetails.push(obj);
     }
     if (this.property.fence > 0) {
       const obj = { name: 'Fence', value: this.property.fence };
-      rcDetails.push(obj);
+      rsDetails.push(obj);
     }
-    this.property.relatedContentDetails = rcDetails;
+    this.property.relatedStructureDetails = rsDetails;
   }
 
   convertDataDate() {
@@ -187,7 +187,7 @@ export class IssuanceComponent implements OnInit {
 
     this.convertDataDate();
     this.convertDataAmount();
-    this.buildRcDetails();
+    this.buildRsDetails();
     this.defaultParam();
 
     return this.property;
