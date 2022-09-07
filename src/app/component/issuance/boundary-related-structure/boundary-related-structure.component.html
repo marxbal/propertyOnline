@@ -125,6 +125,77 @@
       </div>
     </mat-card-content>
 
+    <mat-card-title> Other Related Content Details </mat-card-title>
+
+    <mat-card-content>
+      <div class="row">
+        <!-- <div class="col-md-12">
+          <p>Indicate total construction/ building cost of indicated structures</p>
+        </div> -->
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Paintings</mat-label>
+            <input type="text"
+              matInput
+              formControlName="paintings"
+              #paintings
+              (blur)="addCommas(paintings)"/>
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Antiques</mat-label>
+            <input type="text"
+              matInput
+              formControlName="antiques"
+              #antiques
+              (blur)="addCommas(antiques)"/>
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Other work of arts</mat-label>
+            <input type="text"
+              matInput
+              formControlName="otherWorkOfArts"
+              #otherWorkOfArts
+              (blur)="addCommas(otherWorkOfArts)"/>
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Collectible Items</mat-label>
+            <input type="text"
+              matInput
+              formControlName="collectibleItems"
+              #collectibleItems
+              (blur)="addCommas(collectibleItems)"
+            />
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Personal effects, excluding ca</mat-label>
+            <input type="text"
+              matInput
+              formControlName="personalEffets"
+              #personalEffets
+              (blur)="addCommas(personalEffets)"/>
+            <span matPrefix>PHP&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+
     <mat-card-title> Other Details </mat-card-title>
 
     <mat-card-content>

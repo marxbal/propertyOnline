@@ -69,6 +69,12 @@ export class Property {
   swimmingPool: number;
   fence: number;
 
+  paintings: number;
+  antiques: number;
+  otherWorkOfArts: number;
+  collectibleItems: number;
+  personalEffets: number;
+
   lossHistory: string;
   previousInsurer: string;
 }

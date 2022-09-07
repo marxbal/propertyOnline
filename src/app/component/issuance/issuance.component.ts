@@ -87,6 +87,11 @@ export class IssuanceComponent implements OnInit {
       gazebo: ['', null],
       swimmingPool: ['', null],
       fence: ['', null],
+      paintings: ['', null],
+      antiques: ['', null],
+      otherWorkOfArts: ['', null],
+      collectibleItems: ['', null],
+      personalEffets: ['', null],
       lossHistory: ['', null],
       previousInsurer: ['', null],
     });
@@ -129,6 +134,31 @@ export class IssuanceComponent implements OnInit {
     this.property.relatedStructureDetails = rsDetails;
   }
 
+  buildRcDetails() {
+    var rcDetails = [];
+    if (this.property.paintings > 0) {
+      const obj = { name: 'Paintings', value: this.property.paintings };
+      rcDetails.push(obj);
+    }
+    if (this.property.antiques > 0) {
+      const obj = { name: 'Antiques', value: this.property.antiques };
+      rcDetails.push(obj);
+    }
+    if (this.property.otherWorkOfArts > 0) {
+      const obj = { name: 'Other works of arts', value: this.property.otherWorkOfArts };
+      rcDetails.push(obj);
+    }
+    if (this.property.collectibleItems > 0) {
+      const obj = { name: 'Collectible items', value: this.property.collectibleItems };
+      rcDetails.push(obj);
+    }
+    if (this.property.personalEffets > 0) {
+      const obj = { name: 'Personal effects, excluding ca', value: this.property.personalEffets };
+      rcDetails.push(obj);
+    }
+    this.property.relatedContentDetails = rcDetails;
+  }
+
   convertDataDate() {
     const iDate = m(new Date()).format('MM/DD/yyyy');
     const effDate = m(this.property.effectivityDate).format('MM/DD/yyyy');
@@ -150,6 +180,12 @@ export class IssuanceComponent implements OnInit {
     this.property.gazebo = Utility.convertToNumber(this.property.gazebo.toString());
     this.property.swimmingPool = Utility.convertToNumber(this.property.swimmingPool.toString());
     this.property.fence = Utility.convertToNumber(this.property.fence.toString());
+
+    this.property.paintings = Utility.convertToNumber(this.property.paintings.toString());
+    this.property.antiques = Utility.convertToNumber(this.property.antiques.toString());
+    this.property.otherWorkOfArts = Utility.convertToNumber(this.property.otherWorkOfArts.toString());
+    this.property.collectibleItems = Utility.convertToNumber(this.property.collectibleItems.toString());
+    this.property.personalEffets = Utility.convertToNumber(this.property.personalEffets.toString());
   }
 
   defaultParam() {
@@ -188,6 +224,7 @@ export class IssuanceComponent implements OnInit {
     this.convertDataDate();
     this.convertDataAmount();
     this.buildRsDetails();
+    this.buildRcDetails();
     this.defaultParam();
 
     return this.property;
