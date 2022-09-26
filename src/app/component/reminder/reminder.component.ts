@@ -21,7 +21,13 @@ export class ReminderComponent implements OnInit {
 
   disableBtn: boolean = true;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    Swal.fire({
+      imageUrl: './assets/images/amla-popup.jpg',
+      imageWidth: 650,
+      width: 700,
+    });
+  }
 
   goToIssuance() {
     this.router.navigateByUrl('issuance');
