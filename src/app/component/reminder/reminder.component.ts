@@ -23,9 +23,13 @@ export class ReminderComponent implements OnInit {
 
   ngOnInit(): void {
     Swal.fire({
-      imageUrl: './assets/images/amla-popup.jpg',
-      imageWidth: 650,
-      width: 700,
+      background: '#371c6b',
+      showCloseButton: true,
+      showConfirmButton: false,
+      width: 1000,
+      imageWidth: 1000,
+      imageUrl: './assets/images/splash.jpg',
+      timer: 7000,
     });
   }
 
