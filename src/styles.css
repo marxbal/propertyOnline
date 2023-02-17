@@ -52,6 +52,10 @@ h2.swal2-title {
   font-weight: 600 !important;
 }
 
+.swal-splash .swal2-image {
+  margin: 0 auto -20px !important;
+}
+
 @media only screen and (max-width: 767px) {
   body {
     font-size: 90% !important;

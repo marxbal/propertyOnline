@@ -29,7 +29,8 @@ export class ReminderComponent implements OnInit {
       width: 1000,
       imageWidth: 1000,
       imageUrl: './assets/images/splash.jpg',
-      timer: 7000,
+      customClass: 'swal-splash',
+      timer: 7000
     });
   }
 
